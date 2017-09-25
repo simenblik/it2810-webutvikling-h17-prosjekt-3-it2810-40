@@ -4,11 +4,11 @@ const Button = ({action, children}) => {
     const {buttonStyle, text} = styles;
 
     return (
-        <button onClick={action} style={buttonStyle}>
+        <div onClick={action} style={buttonStyle}>
             <p style={text}>
                 {children}
             </p>
-        </button>
+        </div>
     )
 
 };
@@ -19,16 +19,14 @@ const styles = {
     buttonStyle: {
         display: 'flex',
         flex: 1,
-        alignSelf: 'stretch',
+
         borderRadius: 5,
         borderWidth: 0,
         borderColor: 'black',
-        margin: 5,
+        marginRight: 15,
+        marginLeft: 15,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white',
-
-
 
 
 
@@ -36,11 +34,14 @@ const styles = {
 
     text: {
         alignSelf: 'center',
-        color: 'black',
-        fontSize: 16,
+        fontSize: 20,
+        color: 'White',
+        fontFamily: 'Tahoma',
         fontWeight: '600',
-        paddingTop: 10,
-        paddingBottom: 10
+
+
+
+
     }
 
 

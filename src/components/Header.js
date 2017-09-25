@@ -17,7 +17,8 @@ class Header extends Component {
                     </CardSection>
 
                     <CardSection>
-                        <Button>All</Button>
+
+                        <Button style={{margin: 0}}>All</Button>
                         <Button>Done</Button>
                         <Button>Add task</Button>
                     </CardSection>
@@ -39,10 +40,10 @@ const styles = {
 
         //display: 'inline',
         display: 'flex',
-        padding: 10,
         justifyContent: 'space-between',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: 10,
 
 
 
@@ -53,7 +54,10 @@ const styles = {
     header: {
         display: 'flex',
         color: 'white',
-        flex: 3
+        flex: 4,
+        fontFamily: 'Tahoma',
+        fontWeight: '600',
+        fontSize: 25,
     },
 
 
