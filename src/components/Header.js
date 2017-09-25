@@ -9,7 +9,7 @@ class Header extends Component {
         const {containerStyle, header} = styles;
         return (
             <div style={containerStyle}>
-                
+
                     <CardSection>
                         <h1 style={header}>
                             Personal Information Manager
@@ -29,7 +29,7 @@ class Header extends Component {
 const styles = {
     containerStyle: {
         backgroundColor: 'black',
-        height: 60,
+        height: 50,
 
 
         position: 'absolute',
@@ -38,22 +38,22 @@ const styles = {
         top: 0,
 
         //display: 'inline',
-        padding: 5,
-        justifyContent: 'center',
-        flexDirectin: 'row',
+        display: 'flex',
+        padding: 10,
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        alignItems: 'center'
 
 
 
         //justifyContent: 'space-between',
 
-
     },
 
     header: {
+        display: 'flex',
         color: 'white',
-        display: 'inline',
-
-
+        flex: 3
     },
 
 
