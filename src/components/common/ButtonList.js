@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 function Button(props) {
   return (
-    <button
-      className={props.name + '-button'}
-      onClick={props.onClick}
-      style={styles.buttonStyle}
-    >
+    <button className={props.name + "-button"} onClick={props.onClick} style={styles.buttonStyle}>
       {props.value}
     </button>
   );
@@ -14,13 +10,25 @@ function Button(props) {
 
 class ButtonList extends Component {
   render() {
-    return (
+    return(
       <div className="button-group">
-        <Button name="done" onClick="" value="Done" />
-        <Button name="edit" onClick="" value="Edit" />
-        <Button name="delete" onClick="" value="Delete" />
+        <Button
+          name="done"
+          onClick=""
+          value="Done"
+        />
+        <Button
+          name="edit"
+          onClick=""
+          value="Edit"
+        />
+        <Button
+          name="delete"
+          onClick=""
+          value="Delete"
+        />
       </div>
-    );
+    )
   }
 }
 
@@ -30,11 +38,12 @@ const styles = {
     width: 60,
     margin: 5,
     padding: 5,
-    backgroundColor: '#fff',
-    borderColor: '#000',
+    backgroundColor: "#fff",
+    borderColor: "#000",
     borderRadius: 10,
     borderWidth: 2,
-  },
+  }
+
 };
 
-export default ButtonList;
+export {ButtonList}
