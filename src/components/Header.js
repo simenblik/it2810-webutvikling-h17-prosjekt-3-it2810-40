@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, CardSection} from './common';
+import {ButtonHeader, CardSection} from './common';
 
 class Header extends Component {
 
@@ -9,19 +9,20 @@ class Header extends Component {
         const {containerStyle, header} = styles;
         return (
             <div style={containerStyle}>
-
-                    <CardSection>
-                        <h1 style={header}>
-                            Personal Information Manager
-                        </h1>
-                    </CardSection>
-
-                    <CardSection>
-
-                        <Button style={{margin: 0}}>All</Button>
-                        <Button>Done</Button>
-                        <Button>Add task</Button>
-                    </CardSection>
+                    <div>
+                        <CardSection>
+                            <h1 style={header}>
+                                Personal Information Manager
+                            </h1>
+                        </CardSection>
+                    </div>
+                    <div>
+                        <CardSection>
+                            <ButtonHeader style={{margin: 0}}>All</ButtonHeader>
+                            <ButtonHeader>Done</ButtonHeader>
+                            <ButtonHeader>Add task</ButtonHeader>
+                        </CardSection>
+                    </div>
             </div>
         );
     }
