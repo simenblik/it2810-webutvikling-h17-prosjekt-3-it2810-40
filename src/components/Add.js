@@ -1,50 +1,87 @@
 import React, { Component } from 'react';
 import TimePicker from 'rc-time-picker';
-import 'rc-time-picker/assets/index.css';
+import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import {Card, CardSection} from './common';
+
+import 'rc-time-picker/assets/index.css';
+import 'react-datepicker/dist/react-datepicker.css';
+
+
+import {Card, CardSection, Button} from './common';
 
 class Add extends Component {
+    constructor() {
+        super();
+        this.state = {
+            startDate: moment()
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
 
+
+    handleChange(date) {
+        this.setState({
+            startDate: date
+        });
+    }
 
 
     render(){
-        const {container, inputStyle, areaStyle} = styles;
+        const {
+            container,
+            inputStyle,
+            areaStyle,
+            buttonSection,
+            textStyle,
+            DateStyle} = styles;
 
 
         return (
             <div style={container}>
                 <Card>
                     <CardSection>
-                        <h2>Add Task</h2>
+                        <h2 style={textStyle}>Add Task</h2>
                     </CardSection>
 
                     <CardSection>
-                        <p>Name</p>
+                        <p style={textStyle}>Name</p>
                         <input style={inputStyle} placeholder="Webutvikling"/>
                     </CardSection>
 
                     <CardSection>
-                        <p>Time</p>
+                        <p style={textStyle}>Time</p>
                         <TimePicker
                             style={{width: 140, marginRight: 10}}
                             defaultValue={moment()}
-                            //className="Add"
-                            //onChange={this.onChange.bind(this)}
+
                         />
                     </CardSection>
 
                     <CardSection>
-                        <p>Date</p>
-                        <input style={inputStyle}/>
+                        <p style={textStyle}>Date</p>
+                        <DatePicker
+                            style={DateStyle}
+                            selected={moment()}
+                            onChange={this.handleChange}
+                        />
                     </CardSection>
 
                     <CardSection>
-                        <p>More Info</p>
+                        <p style={textStyle}>More Info</p>
                     </CardSection>
                     <CardSection>
                         <textarea style={areaStyle} placeholder="write more inforamtion here"/>
                     </CardSection>
+                    <div style={buttonSection}>
+                        <CardSection>
+                            <Button>
+                                Done
+                            </Button>
+                            <Button>
+                                Cancel
+                            </Button>
+                        </CardSection>
+                    </div>
                 </Card>
             </div>
         )
@@ -54,7 +91,7 @@ class Add extends Component {
 const styles = {
     container: {
         marginTop: 50,
-        marginRight: 15,
+        marginRight: 100,
         display: 'flex',
         flex: '1'
     },
@@ -72,7 +109,19 @@ const styles = {
         borderRadius: 10,
         borderWidth: 1,
         width: 200,
-        height: 100
+        height: 50,
+        resize: 'vertical'
+    },
+
+    buttonSection: {
+        margin: 10
+    },
+
+    textStyle: {
+        fontFamily: 'Tahoma',
+    },
+    DateStyle: {
+
     }
 };
 

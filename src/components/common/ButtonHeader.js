@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 class ButtonHeader extends Component {
 
 
@@ -39,6 +40,7 @@ class ButtonHeader extends Component {
 
 }
 
+
 ButtonHeader.defaultProps = {
     active: false
 };
@@ -53,8 +55,10 @@ const styles = {
         borderRadius: 5,
         borderWidth: 0,
         borderColor: 'black',
+
         marginRight: 20,
         marginLeft: 20,
+
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column'

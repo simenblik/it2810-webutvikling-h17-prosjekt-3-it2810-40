@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import {ButtonHeader, CardSection} from './common';
 import Add from './Add';
 
@@ -32,10 +33,34 @@ class Header extends Component {
     }
 
     addButton() {
-        this.setState({
-            add: true
+        const {add} = this.state;
 
-        })
+        if(!add) {
+            this.setState({
+                add: true
+
+            })
+        } else {
+            this.setState({
+                add: false
+
+            })
+        }
+    }
+
+
+
+    renderAdd() {
+        const {add} = this.state;
+        if(add){
+            return(
+                <Add/>
+            )
+        } else {
+            return(
+                <div/>
+            )
+        }
     }
 
     render() {
@@ -61,7 +86,9 @@ class Header extends Component {
                         </CardSection>
                     </div>
                 </div>
-                <Add/>
+
+                {this.renderAdd()}
+
             </div>
         );
     }
@@ -114,5 +141,10 @@ const styles = {
 
 };
 
+const mapStateToProps = ({addReducer}) => {
+    const {add} = addReducer;
+    return {add};
+};
 
-export default Header;
+
+export default connect(mapStateToProps, {}) (Header);
