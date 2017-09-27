@@ -1,15 +1,49 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const Button = ({action, children}) => {
-    const {buttonStyle, text} = styles;
+class ButtonHeader extends Component {
 
-    return (
-        <div onClick={action} style={buttonStyle}>
-            <p style={text}>
-                {children}
-            </p>
-        </div>
-    )
+
+    constructor() {
+        super();
+        this.state = {
+            active: false
+        }
+    }
+
+    renderUnderLine() {
+        const {active} = this.state;
+        const {action, children} = this.props;
+        const {buttonStyle, text, underLine} = styles;
+
+        if(active){
+            return(
+                <div onClick={action} style={buttonStyle}>
+                    <p style={text}>
+                        {children}
+                    </p>
+                    <div style={underLine}>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div onClick={action} style={buttonStyle}>
+                    <p style={text}>
+                        {children}
+                    </p>
+                </div>
+            )
+        }
+    }
+
+    render(){
+
+        return (
+            <div>
+                {this.renderUnderLine()}
+            </div>
+        )
+    }
 
 };
 
@@ -23,12 +57,11 @@ const styles = {
         borderRadius: 5,
         borderWidth: 0,
         borderColor: 'black',
-        marginRight: 15,
-        marginLeft: 15,
+        marginRight: 5,
+        marginLeft: 5,
         justifyContent: 'center',
         alignItems: 'center',
-
-
+        flexDirection: 'column'
 
     },
 
@@ -38,9 +71,15 @@ const styles = {
         color: 'White',
         fontFamily: 'Tahoma',
         fontWeight: '600',
+        marginBottom: 5
+    },
 
-
-
+    underLine: {
+        display: 'flex',
+        flex: 1,
+        backgroundColor: 'white',
+        height: 5,
+        width: 50
 
     }
 
@@ -48,4 +87,4 @@ const styles = {
 
 };
 
-export {Button}
+export {ButtonHeader}
