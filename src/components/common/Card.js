@@ -4,12 +4,7 @@ import React from 'react';
 
 const Card = props => {
   const { buttonStyle, cardStyle } = styles;
-  return (
-    <div>
-      <p>stuff</p>
-    </div>
-  );
-  // return <div>{props.children}</div>;
+  return <div style={styles.cardStyle}>{props.children}</div>;
 };
 
 const styles = {
@@ -18,8 +13,10 @@ const styles = {
   },
   cardStyle: {
     flex: 1,
-    marginTop: 20,
-    padding: 5,
+    marginTop: 100,
+    padding: 3,
+    borderRadius: 10,
+    backgroundColor: '#ccc',
   },
 };
 
