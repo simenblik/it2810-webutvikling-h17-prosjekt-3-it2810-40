@@ -46,6 +46,7 @@ class Header extends Component {
                         <ButtonHeader>Add task</ButtonHeader>
                     </CardSection>
                 </div>
+
             </div>
         );
     }
