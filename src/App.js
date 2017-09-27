@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Card from './components/common/Card.js';
+import ButtonList from './components/common/ButtonList.js';
 
 class App extends Component {
   render() {
@@ -11,7 +12,9 @@ class App extends Component {
           <Header />{' '}
         </div>
         <div className="cardStyle">
-          <Card />
+          <Card>
+            <ButtonList />
+          </Card>
         </div>
       </div>
     );
