@@ -11,7 +11,7 @@ function Button(props) {
 class ButtonList extends Component {
   render() {
     return(
-      <div className="button-group">
+      <div className="button-group" style={styles.groupStyle}>
         <Button
           name="done"
           onClick=""
@@ -42,6 +42,9 @@ const styles = {
     borderColor: "#000",
     borderRadius: 10,
     borderWidth: 2,
+  },
+  groupStyle: {
+    marginLeft: 'auto',
   }
 
 };
