@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, CardSection} from './common';
+import {ButtonHeader, CardSection} from './common';
 
 class Header extends Component {
 
@@ -18,9 +18,9 @@ class Header extends Component {
 
                     <CardSection>
 
-                        <Button style={{margin: 0}}>All</Button>
-                        <Button>Done</Button>
-                        <Button>Add task</Button>
+                        <ButtonHeader style={{margin: 0}}>All</ButtonHeader>
+                        <ButtonHeader>Done</ButtonHeader>
+                        <ButtonHeader>Add task</ButtonHeader>
                     </CardSection>
             </div>
         );
