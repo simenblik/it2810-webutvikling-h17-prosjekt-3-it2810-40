@@ -3,16 +3,8 @@ import React, {Component} from 'react';
 class ButtonHeader extends Component {
 
 
-    constructor() {
-        super();
-        this.state = {
-            active: false
-        }
-    }
-
     renderUnderLine() {
-        const {active} = this.state;
-        const {action, children} = this.props;
+        const {active, action, children} = this.props;
         const {buttonStyle, text, underLine} = styles;
 
         if(active){
@@ -45,6 +37,10 @@ class ButtonHeader extends Component {
         )
     }
 
+}
+
+ButtonHeader.defaultProps = {
+    active: false
 };
 
 //skrive in style her, så får vi en standarisert knapp
@@ -57,8 +53,8 @@ const styles = {
         borderRadius: 5,
         borderWidth: 0,
         borderColor: 'black',
-        marginRight: 5,
-        marginLeft: 5,
+        marginRight: 20,
+        marginLeft: 20,
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column'
@@ -68,6 +64,8 @@ const styles = {
     text: {
         alignSelf: 'center',
         fontSize: 20,
+        marginRight: 15,
+        marginLeft: 15,
         color: 'White',
         fontFamily: 'Tahoma',
         fontWeight: '600',
