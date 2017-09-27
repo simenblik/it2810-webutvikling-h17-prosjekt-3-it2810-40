@@ -12,8 +12,8 @@ const styles = {
     flex: 1,
   },
   cardStyle: {
+    display: 'flex',
     flex: 1,
-    marginTop: 100,
     padding: 3,
     borderRadius: 10,
     backgroundColor: '#ccc',

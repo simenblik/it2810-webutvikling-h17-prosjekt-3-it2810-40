@@ -10,6 +10,7 @@ class App extends Component {
         <div>
           <Header />{' '}
         </div>
+        <div style={{height: 70}}></div>
         <div className="cardStyle">
           <Card>
             <ButtonList />
