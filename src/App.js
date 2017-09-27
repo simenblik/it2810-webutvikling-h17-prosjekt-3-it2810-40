@@ -1,21 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, Card } from 'react';
 import Header from './components/Header';
-import {Card, ButtonList} from './components/common/index.js';
+
 
 class App extends Component {
   render() {
     return (
       <div>
-        {' '}
-        <div>
-          <Header />{' '}
-        </div>
-        <div style={{height: 70}}></div>
-        <div className="cardStyle">
-          <Card>
-            <ButtonList />
-          </Card>
-        </div>
+
+          <Header />
+
       </div>
     );
   }
