@@ -9,7 +9,7 @@ class Add extends Component {
 
 
     render(){
-        const {container, inputStyle} = styles;
+        const {container, inputStyle, areaStyle} = styles;
 
 
         return (
@@ -27,7 +27,7 @@ class Add extends Component {
                     <CardSection>
                         <p>Time</p>
                         <TimePicker
-
+                            style={{width: 140, marginRight: 10}}
                             defaultValue={moment()}
                             //className="Add"
                             //onChange={this.onChange.bind(this)}
@@ -36,12 +36,14 @@ class Add extends Component {
 
                     <CardSection>
                         <p>Date</p>
-                        <input/>
+                        <input style={inputStyle}/>
                     </CardSection>
 
                     <CardSection>
                         <p>More Info</p>
-                        <input/>
+                    </CardSection>
+                    <CardSection>
+                        <textarea style={areaStyle} placeholder="write more inforamtion here"/>
                     </CardSection>
                 </Card>
             </div>
@@ -60,7 +62,17 @@ const styles = {
     inputStyle: {
         borderRadius: 10,
         borderWidth: 1,
+        paddingLeft: 10,
+        margin: 10
+       // borderColor: 'green',
 
+    },
+
+    areaStyle: {
+        borderRadius: 10,
+        borderWidth: 1,
+        width: 200,
+        height: 100
     }
 };
 
