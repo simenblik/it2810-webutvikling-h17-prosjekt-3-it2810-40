@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import TimePicker from 'rc-time-picker';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import {connect} from 'react-redux';
+
+import {doneAction, cancelAction} from '../actions'
 
 import 'rc-time-picker/assets/index.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -23,6 +26,14 @@ class Add extends Component {
         this.setState({
             startDate: date
         });
+    }
+
+    buttonDone(){
+        this.props.doneAction();
+    }
+
+    buttonCancel(){
+        this.props.cancelAction();
     }
 
 
@@ -74,10 +85,10 @@ class Add extends Component {
                     </CardSection>
                     <div style={buttonSection}>
                         <CardSection>
-                            <Button>
+                            <Button onPress={() => this.buttonDone()}>
                                 Done
                             </Button>
-                            <Button>
+                            <Button onPress={() => this.buttonCancel()}>
                                 Cancel
                             </Button>
                         </CardSection>
@@ -125,4 +136,8 @@ const styles = {
     }
 };
 
-export default Add;
+const mapStateToProps = ({}) => {
+    return {};
+};
+
+export default connect(mapStateToProps, {doneAction, cancelAction})(Add) ;
