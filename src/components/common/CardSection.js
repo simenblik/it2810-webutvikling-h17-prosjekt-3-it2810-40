@@ -2,27 +2,20 @@ import React from 'react';
 
 //er en container som kan ha
 
-const CardSection = (props) => {
-
-    return (
-        <div style={styles.containerStyle}>
-            {props.children}
-        </div>
-    )
-
+const CardSection = props => {
+  return <div style={styles.containerStyle}>{props.children}</div>;
 };
-
 
 const styles = {
-    containerStyle: {
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        position: 'relative',
-        display: 'flex',
-        flex: 1
-
-    }
-
+  containerStyle: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    position: 'relative',
+    marginLeft: '5px',
+  },
 };
 
-export {CardSection}
+export { CardSection };

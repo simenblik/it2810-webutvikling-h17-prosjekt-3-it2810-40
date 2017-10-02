@@ -30,7 +30,7 @@ class Add extends Component {
       areaStyle,
       buttonSection,
       textStyle,
-      DateStyle,
+      dateStyle,
     } = styles;
 
     return (
@@ -53,22 +53,19 @@ class Add extends Component {
             />
           </CardSection>
 
-          <CardSection>
+          <CardSection style={dateStyle}>
             <p style={textStyle}>Date</p>
-            <DatePicker
-              style={DateStyle}
-              selected={moment()}
-              onChange={this.handleChange}
-            />
+            <DatePicker selected={moment()} onChange={this.handleChange} />
           </CardSection>
 
           <CardSection>
             <p style={textStyle}>More Info</p>
           </CardSection>
+
           <CardSection>
             <textarea
               style={areaStyle}
-              placeholder="write more inforamtion here"
+              placeholder="Write more inforamtion here"
             />
           </CardSection>
           <div style={buttonSection}>
@@ -96,25 +93,34 @@ const styles = {
     borderWidth: 1,
     paddingLeft: 10,
     margin: 10,
-    // borderColor: 'green',
   },
 
   areaStyle: {
+    flex: '1',
     borderRadius: 10,
     borderWidth: 1,
     width: 200,
     height: 50,
     resize: 'vertical',
+    justifyContent: 'center',
+    marginRight: '5px',
   },
 
   buttonSection: {
+    display: 'flex',
+    justifyContent: 'center',
     margin: 10,
   },
 
   textStyle: {
     fontFamily: 'Tahoma',
   },
-  DateStyle: {},
+
+  dateStyle: {
+    display: 'flex',
+    flex: '1',
+    marginRight: '5px',
+  },
 };
 
 export default Add;
