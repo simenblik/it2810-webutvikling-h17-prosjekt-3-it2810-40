@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import TimePicker from 'rc-time-picker';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import { connect } from 'react-redux';
+
+import {
+  doneAction,
+  cancelAction,
+  nameChange,
+  timeChange,
+  dateChange,
+  moreInfoChange,
+} from '../actions';
 
 import 'rc-time-picker/assets/index.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -9,18 +19,28 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { Card, CardSection, Button } from './common';
 
 class Add extends Component {
-  constructor() {
-    super();
-    this.state = {
-      startDate: moment(),
-    };
-    this.handleChange = this.handleChange.bind(this);
+  buttonDone() {
+    this.props.doneAction();
   }
 
-  handleChange(date) {
-    this.setState({
-      startDate: date,
-    });
+  buttonCancel() {
+    this.props.cancelAction();
+  }
+
+  onNameChange(text) {
+    this.props.nameChange(text);
+  }
+
+  onTimeChange(time) {
+    this.props.timeChange(time);
+  }
+
+  onDateChange(date) {
+    this.props.dateChange(date);
+  }
+
+  onInfoChange(text) {
+    this.props.moreInfoChange(text);
   }
 
   render() {
@@ -28,11 +48,13 @@ class Add extends Component {
       container,
       nameInputStyle,
       infoInputStyle,
+      timeStyle,
       buttonSection,
       textStyle,
-      timeStyle,
       dateStyle,
     } = styles;
+
+    const { name, time, date, info } = this.props;
 
     return (
       <div style={container}>
@@ -43,33 +65,48 @@ class Add extends Component {
 
           <CardSection>
             <p style={textStyle}>Name</p>
-            <input style={nameInputStyle} placeholder="Webutvikling" />
+            <input
+              style={nameInputStyle}
+              onChange={this.onNameChange.bind(this)}
+              value={name}
+              placeholder="Webutvikling"
+            />
           </CardSection>
 
           <CardSection>
             <p style={textStyle}>Time</p>
-            <TimePicker style={timeStyle} defaultValue={moment()} />
+            <TimePicker
+              value={time}
+              style={timeStyle}
+              onChange={this.onTimeChange.bind(this)}
+            />
           </CardSection>
 
-          <CardSection style={dateStyle}>
+          <CardSection>
             <p style={textStyle}>Date</p>
-            <DatePicker selected={moment()} onChange={this.handleChange} />
+            <DatePicker
+              style={dateStyle}
+              selected={date}
+              onChange={this.onDateChange.bind(this)}
+            />
           </CardSection>
 
           <CardSection>
             <p style={textStyle}>More Info</p>
           </CardSection>
-
           <CardSection>
             <textarea
               style={infoInputStyle}
-              placeholder="Write more inforamtion here"
+              value={info}
+              onChange={this.onInfoChange.bind(this)}
+              placeholder="write more inforamtion here"
             />
           </CardSection>
+
           <div style={buttonSection}>
             <CardSection>
-              <Button>Done</Button>
-              <Button>Cancel</Button>
+              <Button onPress={() => this.buttonDone()}>Done</Button>
+              <Button onPress={() => this.buttonCancel()}>Cancel</Button>
             </CardSection>
           </div>
         </Card>
@@ -124,4 +161,16 @@ const styles = {
   },
 };
 
-export default Add;
+const mapStateToProps = ({ addReducer }) => {
+  const { name, time, date, info } = addReducer;
+  return { name, time, date, info };
+};
+
+export default connect(mapStateToProps, {
+  doneAction,
+  cancelAction,
+  nameChange,
+  timeChange,
+  dateChange,
+  moreInfoChange,
+})(Add);

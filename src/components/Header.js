@@ -2,56 +2,50 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {ButtonHeader, CardSection} from './common';
 import Add from './Add';
+import {doneAction, addAction, cancelAction} from '../actions'
 
 class Header extends Component {
+
 
     constructor() {
         super();
         this.state = {
-            all: true,
-            done: false,
-            add: false
+            allButton: true,
+            doneButton: false,
         }
     }
 
-    allButton() {
-        this.setState({
-            all: true,
-            done: false,
-            add: false
 
+    allButton() {
+
+        this.setState({
+            allButton: true,
+            doneButton: false,
         })
     }
 
     doneButton() {
-        this.setState({
-            all: false,
-            done: true,
-            add: false
 
+        this.setState({
+            allButton: false,
+            doneButton: true,
         })
     }
 
     addButton() {
-        const {add} = this.state;
+        const {add} = this.props;
 
         if(!add) {
-            this.setState({
-                add: true
-
-            })
+            this.props.addAction()
         } else {
-            this.setState({
-                add: false
-
-            })
+            this.props.cancelAction()
         }
     }
 
 
 
     renderAdd() {
-        const {add} = this.state;
+        const {add} = this.props;
         if(add){
             return(
                 <Add/>
@@ -67,7 +61,7 @@ class Header extends Component {
 
         //Henter ut varibalene fra style
         const {navContainerStyle, header, containerStyle} = styles;
-        const {all, done} = this.state;
+        const {allButton, doneButton} = this.state;
         return (
             <div style={containerStyle}>
                 <div style={navContainerStyle}>
@@ -80,9 +74,9 @@ class Header extends Component {
                     </div>
                     <div>
                         <CardSection>
-                            <ButtonHeader active={all} action={() =>this.allButton()}>All</ButtonHeader>
-                            <ButtonHeader active={done} action={() => this.doneButton()}>Done</ButtonHeader>
-                            <ButtonHeader action={() => this.addButton()}>Add</ButtonHeader>
+                            <ButtonHeader active={allButton} action={() =>this.allButton()}>All</ButtonHeader>
+                            <ButtonHeader active={doneButton} action={() => this.doneButton()}>Done</ButtonHeader>
+                            <ButtonHeader action={() => this.addButton()}>Add Task</ButtonHeader>
                         </CardSection>
                     </div>
                 </div>
@@ -112,18 +106,13 @@ const styles = {
         left: 0,
         right: 0,
         top: 0,
-
-        //display: 'inline',
+        
         display: 'flex',
         justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center',
         padding: 10,
 
-
-
-
-        //justifyContent: 'space-between',
 
     },
 
@@ -147,4 +136,4 @@ const mapStateToProps = ({addReducer}) => {
 };
 
 
-export default connect(mapStateToProps, {}) (Header);
+export default connect(mapStateToProps, {doneAction, addAction, cancelAction}) (Header);

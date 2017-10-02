@@ -1,1 +1,1 @@
-export * from 'addActions';
+export * from './addActions';
