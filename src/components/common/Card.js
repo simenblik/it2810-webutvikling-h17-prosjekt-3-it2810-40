@@ -14,10 +14,11 @@ const styles = {
   cardStyle: {
     display: 'flex',
     flex: 1,
+    flexDirection: 'column',
     padding: 3,
     borderRadius: 10,
     backgroundColor: '#ccc',
   },
 };
 
-export {Card};
+export { Card };
