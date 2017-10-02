@@ -3,10 +3,11 @@ import moment from 'moment';
 
 const INITIAL_STATE = {
     add: true,
-    name: '',
+    name: "",
     time: moment(),
     date: moment(),
-    info: ''
+    info: "",
+    todoList: []
 
 
 
@@ -17,7 +18,7 @@ export default (state = INITIAL_STATE, action) => {
         case ADD_CANCEL:
             return {...state, add: false, name: '', info: ''};
         case ADD_DONE:
-            return {...state, add: false, name: '', info: ''};
+            return {...state, add: false, todoList: [...state.todoList, action.payload], name: '', info: ''};
         case ADD:
             return {...state, add: true};
         case NAME_CHANGE:

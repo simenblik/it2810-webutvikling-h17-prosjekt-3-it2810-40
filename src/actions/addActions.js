@@ -12,15 +12,15 @@ export const addAction = () => {
     }
 };
 
-export const doneAction = () => {
+export const doneAction = (todo) => {
+    console.log(todo);
     return {
-        type: ADD_DONE
+        type: ADD_DONE,
+        payload: todo
     }
 };
 
 export const nameChange = ({text}) => {
-
-
     return {
         type: NAME_CHANGE,
         payload: text
@@ -36,6 +36,7 @@ export const timeChange = (time) => {
 };
 
 export const dateChange = (date) => {
+    console.log(date.date());
     return {
         type: DATE_CHANGE,
         payload: date

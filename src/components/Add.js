@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TimePicker from 'rc-time-picker';
 import DatePicker from 'react-datepicker';
-import moment from 'moment';
 import {connect} from 'react-redux';
 
 import {doneAction,
@@ -19,8 +18,10 @@ import {Card, CardSection, Button} from './common';
 
 class Add extends Component {
 
+
     buttonDone(){
-        this.props.doneAction();
+        const {name, time, date, info} = this.props;
+        this.props.doneAction({name, time, date, info});
     }
 
     buttonCancel(){
@@ -28,7 +29,7 @@ class Add extends Component {
     }
 
     onNameChange(text) {
-        this.props.nameChange(text);
+        this.props.nameChange({text: text.target.value});
     }
 
     onTimeChange(time){
@@ -40,7 +41,7 @@ class Add extends Component {
     }
 
     onInfoChange(text){
-        this.props.moreInfoChange(text);
+        this.props.moreInfoChange({text: text.target.value});
     }
 
 
@@ -68,7 +69,7 @@ class Add extends Component {
                     <CardSection>
                         <p style={textStyle}>Name</p>
                         <input style={inputStyle}
-                               onChange={this.onNameChange.bind(this)}
+                               onChange={text => this.onNameChange(text)}
                                value={name}
                                placeholder="Webutvikling"/>
                     </CardSection>
@@ -98,7 +99,7 @@ class Add extends Component {
                     <CardSection>
                         <textarea style={areaStyle}
                                   value={info}
-                                  onChange={this.onInfoChange.bind(this)}
+                                  onChange={text => this.onInfoChange(text)}
                                   placeholder="write more inforamtion here"/>
                     </CardSection>
                     <div style={buttonSection}>
