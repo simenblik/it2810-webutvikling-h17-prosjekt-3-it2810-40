@@ -3,20 +3,23 @@ import TimePicker from 'rc-time-picker';
 import DatePicker from 'react-datepicker';
 import {connect} from 'react-redux';
 
-import {doneAction,
-    cancelAction,
-    nameChange,
-    timeChange,
-    dateChange,
-    moreInfoChange} from '../actions'
+
+import {
+  doneAction,
+  cancelAction,
+  nameChange,
+  timeChange,
+  dateChange,
+  moreInfoChange,
+} from '../actions';
 
 import 'rc-time-picker/assets/index.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
-
-import {Card, CardSection, Button} from './common';
+import { Card, CardSection, Button } from './common';
 
 class Add extends Component {
+
 
 
     buttonDone(){
@@ -116,54 +119,65 @@ class Add extends Component {
             </div>
         )
     }
+
 }
 
 const styles = {
-    container: {
-        marginTop: 50,
-        marginRight: 100,
-        display: 'flex',
-        flex: '1',
-    },
+  container: {
+    marginTop: '100',
+    marginRight: '100',
+    display: 'flex',
+    flex: '1',
+  },
 
-    inputStyle: {
-        borderRadius: 10,
-        borderWidth: 1,
-        paddingLeft: 10,
-        margin: 10
-       // borderColor: 'green',
+  nameInputStyle: {
+    borderRadius: '10',
+    borderWidth: '1',
+    paddingLeft: '10',
+    width: '130',
+  },
 
-    },
+  textStyle: {
+    fontFamily: 'Tahoma',
+    fontFamily: 'TakaoPGothic',
+  },
 
-    areaStyle: {
-        borderRadius: 10,
-        borderWidth: 1,
-        width: 200,
-        height: 50,
-        resize: 'vertical'
-    },
+  timeStyle: {
+    width: '140',
+  },
 
-    buttonSection: {
-        margin: 10
-    },
+  dateStyle: {
+    display: 'flex',
+    flex: '1',
+  },
 
-    textStyle: {
-        fontFamily: 'Tahoma',
-    },
-    DateStyle: {
+  infoInputStyle: {
+    flex: '1',
+    borderRadius: '10',
+    borderWidth: '1',
+    width: '200',
+    height: '50',
+    resize: 'vertical',
+    justifyContent: 'center',
+  },
 
-    }
+  buttonSection: {
+    display: 'flex',
+    justifyContent: 'center',
+    margin: '10',
+  },
 };
 
-const mapStateToProps = ({addReducer}) => {
-    const {name, time, date, info} = addReducer;
-    return {name, time, date, info};
+const mapStateToProps = ({ addReducer }) => {
+  const { name, time, date, info } = addReducer;
+  return { name, time, date, info };
 };
 
 export default connect(mapStateToProps, {
-    doneAction,
-    cancelAction,
-    nameChange,
-    timeChange,
-    dateChange,
-    moreInfoChange})(Add) ;
+  doneAction,
+  cancelAction,
+  nameChange,
+  timeChange,
+  dateChange,
+  moreInfoChange,
+})(Add);
