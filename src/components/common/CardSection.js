@@ -15,6 +15,7 @@ const styles = {
     alignItems: 'center',
     position: 'relative',
     marginLeft: '5px',
+    marginRight: '5px',
   },
 };
 

@@ -26,10 +26,11 @@ class Add extends Component {
   render() {
     const {
       container,
-      inputStyle,
-      areaStyle,
+      nameInputStyle,
+      infoInputStyle,
       buttonSection,
       textStyle,
+      timeStyle,
       dateStyle,
     } = styles;
 
@@ -42,15 +43,12 @@ class Add extends Component {
 
           <CardSection>
             <p style={textStyle}>Name</p>
-            <input style={inputStyle} placeholder="Webutvikling" />
+            <input style={nameInputStyle} placeholder="Webutvikling" />
           </CardSection>
 
           <CardSection>
             <p style={textStyle}>Time</p>
-            <TimePicker
-              style={{ width: 140, marginRight: 10 }}
-              defaultValue={moment()}
-            />
+            <TimePicker style={timeStyle} defaultValue={moment()} />
           </CardSection>
 
           <CardSection style={dateStyle}>
@@ -64,7 +62,7 @@ class Add extends Component {
 
           <CardSection>
             <textarea
-              style={areaStyle}
+              style={infoInputStyle}
               placeholder="Write more inforamtion here"
             />
           </CardSection>
@@ -82,44 +80,47 @@ class Add extends Component {
 
 const styles = {
   container: {
-    marginTop: 50,
-    marginRight: 100,
+    marginTop: '100',
+    marginRight: '100',
     display: 'flex',
     flex: '1',
   },
 
-  inputStyle: {
-    borderRadius: 10,
-    borderWidth: 1,
-    paddingLeft: 10,
-    margin: 10,
-  },
-
-  areaStyle: {
-    flex: '1',
-    borderRadius: 10,
-    borderWidth: 1,
-    width: 200,
-    height: 50,
-    resize: 'vertical',
-    justifyContent: 'center',
-    marginRight: '5px',
-  },
-
-  buttonSection: {
-    display: 'flex',
-    justifyContent: 'center',
-    margin: 10,
+  nameInputStyle: {
+    borderRadius: '10',
+    borderWidth: '1',
+    paddingLeft: '10',
+    width: '130',
   },
 
   textStyle: {
     fontFamily: 'Tahoma',
+    fontFamily: 'TakaoPGothic',
+  },
+
+  timeStyle: {
+    width: '140',
   },
 
   dateStyle: {
     display: 'flex',
     flex: '1',
-    marginRight: '5px',
+  },
+
+  infoInputStyle: {
+    flex: '1',
+    borderRadius: '10',
+    borderWidth: '1',
+    width: '200',
+    height: '50',
+    resize: 'vertical',
+    justifyContent: 'center',
+  },
+
+  buttonSection: {
+    display: 'flex',
+    justifyContent: 'center',
+    margin: '10',
   },
 };
 
