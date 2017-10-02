@@ -46,8 +46,9 @@ class Add extends Component {
   render() {
     const {
       container,
-      inputStyle,
-      areaStyle,
+      nameInputStyle,
+      infoInputStyle,
+      timeStyle,
       buttonSection,
       textStyle,
       dateStyle,
@@ -65,7 +66,7 @@ class Add extends Component {
           <CardSection>
             <p style={textStyle}>Name</p>
             <input
-              style={inputStyle}
+              style={nameInputStyle}
               onChange={this.onNameChange.bind(this)}
               value={name}
               placeholder="Webutvikling"
@@ -75,8 +76,8 @@ class Add extends Component {
           <CardSection>
             <p style={textStyle}>Time</p>
             <TimePicker
-              style={{ width: 140, marginRight: 10 }}
               value={time}
+              style={timeStyle}
               onChange={this.onTimeChange.bind(this)}
             />
           </CardSection>
@@ -95,12 +96,13 @@ class Add extends Component {
           </CardSection>
           <CardSection>
             <textarea
-              style={areaStyle}
+              style={infoInputStyle}
               value={info}
               onChange={this.onInfoChange.bind(this)}
               placeholder="write more inforamtion here"
             />
           </CardSection>
+
           <div style={buttonSection}>
             <CardSection>
               <Button onPress={() => this.buttonDone()}>Done</Button>
