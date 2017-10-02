@@ -6,123 +6,122 @@ import moment from 'moment';
 import 'rc-time-picker/assets/index.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
-
-import {Card, CardSection, Button} from './common';
+import { Card, CardSection, Button } from './common';
 
 class Add extends Component {
-    constructor() {
-        super();
-        this.state = {
-            startDate: moment()
-        };
-        this.handleChange = this.handleChange.bind(this);
-    }
+  constructor() {
+    super();
+    this.state = {
+      startDate: moment(),
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
 
+  handleChange(date) {
+    this.setState({
+      startDate: date,
+    });
+  }
 
-    handleChange(date) {
-        this.setState({
-            startDate: date
-        });
-    }
+  render() {
+    const {
+      container,
+      nameInputStyle,
+      infoInputStyle,
+      buttonSection,
+      textStyle,
+      timeStyle,
+      dateStyle,
+    } = styles;
 
+    return (
+      <div style={container}>
+        <Card>
+          <CardSection>
+            <h2 style={textStyle}>Add Task</h2>
+          </CardSection>
 
-    render(){
-        const {
-            container,
-            inputStyle,
-            areaStyle,
-            buttonSection,
-            textStyle,
-            DateStyle} = styles;
+          <CardSection>
+            <p style={textStyle}>Name</p>
+            <input style={nameInputStyle} placeholder="Webutvikling" />
+          </CardSection>
 
+          <CardSection>
+            <p style={textStyle}>Time</p>
+            <TimePicker style={timeStyle} defaultValue={moment()} />
+          </CardSection>
 
-        return (
-            <div style={container}>
-                <Card>
-                    <CardSection>
-                        <h2 style={textStyle}>Add Task</h2>
-                    </CardSection>
+          <CardSection style={dateStyle}>
+            <p style={textStyle}>Date</p>
+            <DatePicker selected={moment()} onChange={this.handleChange} />
+          </CardSection>
 
-                    <CardSection>
-                        <p style={textStyle}>Name</p>
-                        <input style={inputStyle} placeholder="Webutvikling"/>
-                    </CardSection>
+          <CardSection>
+            <p style={textStyle}>More Info</p>
+          </CardSection>
 
-                    <CardSection>
-                        <p style={textStyle}>Time</p>
-                        <TimePicker
-                            style={{width: 140, marginRight: 10}}
-                            defaultValue={moment()}
-
-                        />
-                    </CardSection>
-
-                    <CardSection>
-                        <p style={textStyle}>Date</p>
-                        <DatePicker
-                            style={DateStyle}
-                            selected={moment()}
-                            onChange={this.handleChange}
-                        />
-                    </CardSection>
-
-                    <CardSection>
-                        <p style={textStyle}>More Info</p>
-                    </CardSection>
-                    <CardSection>
-                        <textarea style={areaStyle} placeholder="write more inforamtion here"/>
-                    </CardSection>
-                    <div style={buttonSection}>
-                        <CardSection>
-                            <Button>
-                                Done
-                            </Button>
-                            <Button>
-                                Cancel
-                            </Button>
-                        </CardSection>
-                    </div>
-                </Card>
-            </div>
-        )
-    }
+          <CardSection>
+            <textarea
+              style={infoInputStyle}
+              placeholder="Write more inforamtion here"
+            />
+          </CardSection>
+          <div style={buttonSection}>
+            <CardSection>
+              <Button>Done</Button>
+              <Button>Cancel</Button>
+            </CardSection>
+          </div>
+        </Card>
+      </div>
+    );
+  }
 }
 
 const styles = {
-    container: {
-        marginTop: 50,
-        marginRight: 100,
-        display: 'flex',
-        flex: '1'
-    },
+  container: {
+    marginTop: '100',
+    marginRight: '100',
+    display: 'flex',
+    flex: '1',
+  },
 
-    inputStyle: {
-        borderRadius: 10,
-        borderWidth: 1,
-        paddingLeft: 10,
-        margin: 10
-       // borderColor: 'green',
+  nameInputStyle: {
+    borderRadius: '10',
+    borderWidth: '1',
+    paddingLeft: '10',
+    width: '130',
+  },
 
-    },
+  textStyle: {
+    fontFamily: 'Tahoma',
+    fontFamily: 'TakaoPGothic',
+  },
 
-    areaStyle: {
-        borderRadius: 10,
-        borderWidth: 1,
-        width: 200,
-        height: 50,
-        resize: 'vertical'
-    },
+  timeStyle: {
+    width: '140',
+  },
 
-    buttonSection: {
-        margin: 10
-    },
+  dateStyle: {
+    display: 'flex',
+    flex: '1',
+  },
 
-    textStyle: {
-        fontFamily: 'Tahoma',
-    },
-    DateStyle: {
+  infoInputStyle: {
+    flex: '1',
+    borderRadius: '10',
+    borderWidth: '1',
+    width: '200',
+    height: '50',
+    resize: 'vertical',
+    justifyContent: 'center',
+  },
 
-    }
+  buttonSection: {
+    display: 'flex',
+    justifyContent: 'center',
+    margin: '10',
+  },
 };
 
 export default Add;

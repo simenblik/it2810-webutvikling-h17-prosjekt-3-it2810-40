@@ -4,7 +4,7 @@ import React from 'react';
 
 const Card = props => {
   const { buttonStyle, cardStyle } = styles;
-  return <div style={styles.cardStyle}>{props.children}</div>;
+  return <div style={cardStyle}>{props.children}</div>;
 };
 
 const styles = {
@@ -14,10 +14,11 @@ const styles = {
   cardStyle: {
     display: 'flex',
     flex: 1,
+    flexDirection: 'column',
     padding: 3,
     borderRadius: 10,
     backgroundColor: '#ccc',
   },
 };
 
-export {Card};
+export { Card };
