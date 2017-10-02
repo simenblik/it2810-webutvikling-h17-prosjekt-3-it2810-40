@@ -16,7 +16,7 @@ class Add extends Component {
     constructor() {
         super();
         this.state = {
-            startDate: moment()
+            startDate: moment() //noe og commite
         };
         this.handleChange = this.handleChange.bind(this);
     }
