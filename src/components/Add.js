@@ -18,20 +18,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import {Card, CardSection, Button} from './common';
 
 class Add extends Component {
-    constructor() {
-        super();
-        this.state = {
-            startDate: moment() //noe og commite
-        };
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-
-    handleChange(date) {
-        this.setState({
-            startDate: date
-        });
-    }
 
     buttonDone(){
         this.props.doneAction();

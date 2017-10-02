@@ -15,9 +15,9 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch(action.type){
         case ADD_CANCEL:
-            return {...state, add: false};
+            return {...state, add: false, name: '', info: ''};
         case ADD_DONE:
-            return {...state, add: false};
+            return {...state, add: false, name: '', info: ''};
         case ADD:
             return {...state, add: true};
         case NAME_CHANGE:
