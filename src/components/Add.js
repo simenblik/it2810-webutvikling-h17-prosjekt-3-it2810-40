@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import TimePicker from 'rc-time-picker';
 import DatePicker from 'react-datepicker';
-import moment from 'moment';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+
 
 import {
   doneAction,
@@ -19,100 +19,107 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { Card, CardSection, Button } from './common';
 
 class Add extends Component {
-  buttonDone() {
-    this.props.doneAction();
-  }
 
-  buttonCancel() {
-    this.props.cancelAction();
-  }
 
-  onNameChange(text) {
-    this.props.nameChange(text);
-  }
 
-  onTimeChange(time) {
-    this.props.timeChange(time);
-  }
+    buttonDone(){
+        const {name, time, date, info} = this.props;
+        this.props.doneAction({name, time, date, info});
+    }
 
-  onDateChange(date) {
-    this.props.dateChange(date);
-  }
+    buttonCancel(){
+        this.props.cancelAction();
+    }
 
-  onInfoChange(text) {
-    this.props.moreInfoChange(text);
-  }
+    onNameChange(text) {
+        this.props.nameChange({text: text.target.value});
+    }
 
-  render() {
-    const {
-      container,
-      nameInputStyle,
-      infoInputStyle,
-      timeStyle,
-      buttonSection,
-      textStyle,
-      dateStyle,
-    } = styles;
+    onTimeChange(time){
+        this.props.timeChange(time);
+    }
 
-    const { name, time, date, info } = this.props;
+    onDateChange(date){
+        this.props.dateChange(date);
+    }
 
-    return (
-      <div style={container}>
-        <Card>
-          <CardSection>
-            <h2 style={textStyle}>Add Task</h2>
-          </CardSection>
+    onInfoChange(text){
+        this.props.moreInfoChange({text: text.target.value});
+    }
 
-          <CardSection>
-            <p style={textStyle}>Name</p>
-            <input
-              style={nameInputStyle}
-              onChange={this.onNameChange.bind(this)}
-              value={name}
-              placeholder="Webutvikling"
-            />
-          </CardSection>
 
-          <CardSection>
-            <p style={textStyle}>Time</p>
-            <TimePicker
-              value={time}
-              style={timeStyle}
-              onChange={this.onTimeChange.bind(this)}
-            />
-          </CardSection>
 
-          <CardSection>
-            <p style={textStyle}>Date</p>
-            <DatePicker
-              style={dateStyle}
-              selected={date}
-              onChange={this.onDateChange.bind(this)}
-            />
-          </CardSection>
 
-          <CardSection>
-            <p style={textStyle}>More Info</p>
-          </CardSection>
-          <CardSection>
-            <textarea
-              style={infoInputStyle}
-              value={info}
-              onChange={this.onInfoChange.bind(this)}
-              placeholder="write more inforamtion here"
-            />
-          </CardSection>
+    render(){
+        const {
+            container,
+            inputStyle,
+            areaStyle,
+            buttonSection,
+            textStyle,
+            DateStyle} = styles;
 
-          <div style={buttonSection}>
-            <CardSection>
-              <Button onPress={() => this.buttonDone()}>Done</Button>
-              <Button onPress={() => this.buttonCancel()}>Cancel</Button>
-            </CardSection>
-          </div>
-        </Card>
-      </div>
-    );
-  }
+        const {name, time, date, info} = this.props;
+
+
+        return (
+            <div style={container}>
+                <Card>
+                    <CardSection>
+                        <h2 style={textStyle}>Add Task</h2>
+                    </CardSection>
+
+                    <CardSection>
+                        <p style={textStyle}>Name</p>
+                        <input style={inputStyle}
+                               onChange={text => this.onNameChange(text)}
+                               value={name}
+                               placeholder="Webutvikling"/>
+                    </CardSection>
+
+                    <CardSection>
+                        <p style={textStyle}>Time</p>
+                        <TimePicker
+                            style={{width: 140, marginRight: 10}}
+                            value={time}
+                            onChange={this.onTimeChange.bind(this)}
+
+                        />
+                    </CardSection>
+
+                    <CardSection>
+                        <p style={textStyle}>Date</p>
+                        <DatePicker
+                            style={DateStyle}
+                            selected={date}
+                            onChange={this.onDateChange.bind(this)}
+                        />
+                    </CardSection>
+
+                    <CardSection>
+                        <p style={textStyle}>More Info</p>
+                    </CardSection>
+                    <CardSection>
+                        <textarea style={areaStyle}
+                                  value={info}
+                                  onChange={text => this.onInfoChange(text)}
+                                  placeholder="write more inforamtion here"/>
+                    </CardSection>
+                    <div style={buttonSection}>
+                        <CardSection>
+                            <Button onPress={() => this.buttonDone()}>
+                                Done
+                            </Button>
+                            <Button onPress={() => this.buttonCancel()}>
+                                Cancel
+                            </Button>
+                        </CardSection>
+                    </div>
+                </Card>
+            </div>
+        )
+    }
+
 }
 
 const styles = {
