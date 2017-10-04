@@ -13,7 +13,6 @@ export const addAction = () => {
 };
 
 export const doneAction = (todo) => {
-    console.log(todo);
     return {
         type: ADD_DONE,
         payload: todo

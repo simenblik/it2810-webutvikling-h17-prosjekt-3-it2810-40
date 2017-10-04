@@ -15,10 +15,10 @@ const styles = {
     display: 'flex',
     flex: '1',
     flexDirection: 'column',
-    padding: '3',
-    borderRadius: '10',
+    padding: '3px',
+    borderRadius: '10px',
     backgroundColor: '#ccc',
-    marginTop: '10',
+    marginTop: '10px',
   },
 };
 

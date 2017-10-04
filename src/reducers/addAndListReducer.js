@@ -15,7 +15,7 @@ import {
 import moment from 'moment';
 
 const INITIAL_STATE = {
-    add: true,
+    add: false,
     name: "",
     time: moment(),
     date: moment(),
