@@ -1,25 +1,36 @@
 import React from 'react';
+import {View} from 'react-native';
 
-//er en container som kan ha
-
-const Card = props => {
-  const { buttonStyle, cardStyle } = styles;
-  return <div style={cardStyle}>{props.children}</div>;
+const Card = (props) => {
+    return(
+        <View style={[styles.containerStyle, props.style]}>
+            {props.children}
+        </View>
+    );
 };
 
 const styles = {
-  buttonStyle: {
-    flex: '1',
-  },
-  cardStyle: {
-    display: 'flex',
-    flex: '1',
-    flexDirection: 'column',
-    padding: '3',
-    borderRadius: '10',
-    backgroundColor: '#ccc',
-    marginTop: '10',
-  },
+    containerStyle: {
+
+        borderWidth: 1,
+        borderRadius: 2,
+        borderColor: '#ddd',
+        borderBottomWidth: 0,
+
+        shadowColor: '#000',
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+
+        elevation: 1,
+
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 10,
+        marginBottom: 10
+
+
+    }
 };
 
-export { Card };
+export {Card};

@@ -1,22 +1,26 @@
 import React from 'react';
+import {View} from 'react-native';
 
-//er en container som kan ha
-
-const CardSection = props => {
-  return <div style={styles.containerStyle}>{props.children}</div>;
+const CardSection = (props) => {
+    return (
+      <View style={[styles.containerStyle, props.style]}>
+          {props.children}
+      </View>
+    );
 };
 
 const styles = {
-  containerStyle: {
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    position: 'relative',
-    marginLeft: '5px',
-    marginRight: '5px',
-  },
+    containerStyle: {
+       borderWidth: 0,
+        padding: 5,
+        backgroundColor: '#fff',
+        justifyContent: 'flex-start',
+        flexDirection: 'row',
+        position: 'relative',
+
+
+    }
 };
 
-export { CardSection };
+export {CardSection};
+
