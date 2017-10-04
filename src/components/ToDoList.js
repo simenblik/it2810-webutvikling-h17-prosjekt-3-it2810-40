@@ -1,36 +1,70 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import _ from 'lodash';
 import {Card, CardSection, Button} from './common';
+import {onDeleteTodo, onDoneTodo, onDeleteDone} from '../actions/ListAction'
 
 class toDoList extends Component {
 
 
+    buttonDelete(index){
+        const {todoList} = this.props;
+        this.props.onDeleteTodo({index, list: todoList})
+    }
 
+    buttonDone(index){
+        const {todoList} = this.props;
+        this.props.onDoneTodo({index, list: todoList })
+    }
+
+    buttonDoneDelete(index) {
+        const {todoListDone} = this.props;
+        this.props.onDeleteDone({index, list: todoListDone })
+    }
 
 
     renderList() {
-        const{todoList} = this.props;
+        const{todoList, todoListDone, allButton, doneButton} = this.props;
+        const todoListSorted = _.orderBy(todoList, ['date','time'], ['asc', 'asc']);
+        console.log(todoListSorted);
 
-
+    if(allButton) {
         return (
-            todoList.map((todo, index) =>
+            todoListSorted.map((todo, index) =>
 
                 <Card key={index}>
                     <CardSection>
                         <h3>{todo.name}</h3>
                         <p> {todo.time.format('HH:mm')} - {todo.date.format("DD/MM/YY")}</p>
                         <div>
-                            <Button>Done</Button>
-                            <Button>Delete</Button>
+                            <Button onPress={() => this.buttonDone(index)}>Done</Button>
+                            <Button onPress={() => this.buttonDelete(index)}>Delete</Button>
                         </div>
                     </CardSection>
                     <CardSection>
                         <p>{todo.info}</p>
                     </CardSection>
                 </Card>
-
             )
         );
+    } else if (doneButton){
+        return (
+            todoListDone.map((todo, index) =>
+
+                <Card key={index}>
+                    <CardSection>
+                        <h3>{todo.name}</h3>
+                        <div>
+                            <Button onPress={() => this.buttonDoneDelete(index)}>Delete</Button>
+                        </div>
+                    </CardSection>
+                    <CardSection>
+                        <p>{todo.info}</p>
+                    </CardSection>
+                </Card>
+            )
+        );
+    }
     }
 
     render() {
@@ -52,9 +86,10 @@ const styles = { 
     }
 };
 
-const mapStateToProps = ({addReducer}) =>{
-    const {todoList} = addReducer;
-    return {todoList};
+const mapStateToProps = ({addReducer, HeaderReducer}) =>{
+    const {todoList, todoListDone} = addReducer;
+    const {allButton, doneButton} = HeaderReducer;
+    return {todoList, todoListDone, allButton, doneButton};
 };
 
-export default connect(mapStateToProps) (toDoList);
+export default connect(mapStateToProps, {onDeleteTodo, onDoneTodo, onDeleteDone}) (toDoList);
