@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {ButtonHeader, CardSection} from './common';
+import { connect } from 'react-redux';
+import { ButtonHeader, CardSection } from './common';
 import Add from './Add';
 import {doneAction, addAction, cancelAction, onDoneButton, onAllButton} from '../actions'
 
@@ -90,49 +90,46 @@ class Header extends Component {
 
             </div>
         );
+
     }
+
+
+
 }
 
 const styles = {
+  containerStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+  },
 
-    containerStyle: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-end',
+  navContainerStyle: {
+    backgroundColor: 'black',
+    height: '50',
+    width: '100%',
 
-    },
+    position: 'relative',
+    left: '0',
+    right: '0',
+    top: '0',
 
-    navContainerStyle: {
-        backgroundColor: 'black',
-        height: 50,
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: '10',
+  },
 
-
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0,
-        
-        display: 'flex',
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        alignItems: 'center',
-        padding: 10,
-
-
-    },
-
-    header: {
-        display: 'flex',
-        color: 'white',
-        flex: 4,
-        fontFamily: 'Tahoma',
-        fontWeight: '600',
-        fontSize: 25,
-    },
-
-
-
-
+  header: {
+    display: 'flex',
+    color: 'white',
+    flex: '4',
+    fontFamily: 'Tahoma',
+    fontWeight: '600',
+    fontSize: '25',
+    marginLeft: '35',
+  },
 };
 
 const mapStateToProps = ({addReducer, HeaderReducer}) => {
@@ -143,3 +140,4 @@ const mapStateToProps = ({addReducer, HeaderReducer}) => {
 
 
 export default connect(mapStateToProps, {doneAction, addAction, cancelAction, onDoneButton, onAllButton}) (Header);
+
