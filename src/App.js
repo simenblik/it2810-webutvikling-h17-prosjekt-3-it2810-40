@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, Card } from 'react';
 import Header from './components/Header';
+import ToDoList from './components/ToDoList';
+
 
 class App extends Component {
   render() {
     return (
       <div>
-          <Header/>
+
+        <Header/>
+        <ToDoList/>
+
 
       </div>
     );
