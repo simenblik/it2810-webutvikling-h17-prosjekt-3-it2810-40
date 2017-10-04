@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {ButtonHeader, CardSection} from './common';
 import Add from './Add';
-import {doneAction, addAction, cancelAction} from '../actions'
+import {doneAction, addAction, cancelAction, onDoneButton, onAllButton} from '../actions'
 
 class Header extends Component {
-
+/*
 
     constructor() {
         super();
@@ -14,22 +14,27 @@ class Header extends Component {
             doneButton: false,
         }
     }
-
+*/
 
     allButton() {
-
+        this.props.onAllButton();
+/*
         this.setState({
             allButton: true,
             doneButton: false,
         })
+        */
     }
 
     doneButton() {
+        this.props.onDoneButton();
 
+        /*
         this.setState({
             allButton: false,
             doneButton: true,
         })
+        */
     }
 
     addButton() {
@@ -61,7 +66,7 @@ class Header extends Component {
 
         //Henter ut varibalene fra style
         const {navContainerStyle, header, containerStyle} = styles;
-        const {allButton, doneButton} = this.state;
+        const {allButton, doneButton} = this.props;
         return (
             <div style={containerStyle}>
                 <div style={navContainerStyle}>
@@ -130,10 +135,11 @@ const styles = {
 
 };
 
-const mapStateToProps = ({addReducer}) => {
+const mapStateToProps = ({addReducer, HeaderReducer}) => {
     const {add} = addReducer;
-    return {add};
+    const {allButton, doneButton} = HeaderReducer;
+    return {add, allButton, doneButton};
 };
 
 
-export default connect(mapStateToProps, {doneAction, addAction, cancelAction}) (Header);
+export default connect(mapStateToProps, {doneAction, addAction, cancelAction, onDoneButton, onAllButton}) (Header);

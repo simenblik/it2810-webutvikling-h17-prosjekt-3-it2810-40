@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Card, CardSection, Button} from './common';
-import {onDeleteTodo} from '../actions/ToDoListAction'
+import {onDeleteTodo, onDoneTodo, onDeleteDone} from '../actions/ListAction'
 
 class toDoList extends Component {
 
@@ -11,11 +11,21 @@ class toDoList extends Component {
         this.props.onDeleteTodo({index, list: todoList})
     }
 
+    buttonDone(index){
+        const {todoList} = this.props;
+        this.props.onDoneTodo({index, list: todoList })
+    }
+
+    buttonDoneDelete(index) {
+        const {todoListDone} = this.props;
+        this.props.onDeleteDone({index, list: todoListDone })
+    }
+
 
     renderList() {
-        const{todoList} = this.props;
+        const{todoList, todoListDone, allButton, doneButton} = this.props;
 
-
+    if(allButton) {
         return (
             todoList.map((todo, index) =>
 
@@ -24,7 +34,7 @@ class toDoList extends Component {
                         <h3>{todo.name}</h3>
                         <p> {todo.time.format('HH:mm')} - {todo.date.format("DD/MM/YY")}</p>
                         <div>
-                            <Button>Done</Button>
+                            <Button onPress={() => this.buttonDone(index)}>Done</Button>
                             <Button onPress={() => this.buttonDelete(index)}>Delete</Button>
                         </div>
                     </CardSection>
@@ -32,9 +42,26 @@ class toDoList extends Component {
                         <p>{todo.info}</p>
                     </CardSection>
                 </Card>
-
             )
         );
+    } else if (doneButton){
+        return (
+            todoListDone.map((todo, index) =>
+
+                <Card key={index}>
+                    <CardSection>
+                        <h3>{todo.name}</h3>
+                        <div>
+                            <Button onPress={() => this.buttonDoneDelete(index)}>Delete</Button>
+                        </div>
+                    </CardSection>
+                    <CardSection>
+                        <p>{todo.info}</p>
+                    </CardSection>
+                </Card>
+            )
+        );
+    }
     }
 
     render() {
@@ -56,9 +83,10 @@ const styles = { 
     }
 };
 
-const mapStateToProps = ({addReducer}) =>{
-    const {todoList} = addReducer;
-    return {todoList};
+const mapStateToProps = ({addReducer, HeaderReducer}) =>{
+    const {todoList, todoListDone} = addReducer;
+    const {allButton, doneButton} = HeaderReducer;
+    return {todoList, todoListDone, allButton, doneButton};
 };
 
-export default connect(mapStateToProps, {onDeleteTodo}) (toDoList);
+export default connect(mapStateToProps, {onDeleteTodo, onDoneTodo, onDeleteDone}) (toDoList);

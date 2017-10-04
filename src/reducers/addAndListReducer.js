@@ -1,4 +1,15 @@
-import { ADD_CANCEL, ADD_DONE, ADD, NAME_CHANGE, TIME_CHANGE, DATE_CHANGE, MORE_INFO_CHANGE, DELETE_TODO} from '../actions/types';
+import {
+    ADD_CANCEL,
+    ADD_DONE,
+    ADD,
+    NAME_CHANGE,
+    TIME_CHANGE,
+    DATE_CHANGE,
+    MORE_INFO_CHANGE,
+    DELETE_TODO,
+    DONE_TODO,
+    BUTTON_DONE_DELTE} from '../actions/types';
+
 import moment from 'moment';
 
 const INITIAL_STATE = {
@@ -7,7 +18,8 @@ const INITIAL_STATE = {
     time: moment(),
     date: moment(),
     info: "",
-    todoList: []
+    todoList: [],
+    todoListDone: []
 
 
 
@@ -31,6 +43,12 @@ export default (state = INITIAL_STATE, action) => {
             return {...state, info: action.payload};
         case DELETE_TODO:
             return {...state, todoList: action.payload};
+        case DONE_TODO:
+            return {...state,
+                todoListDone: [...state.todoListDone, action.payloadDone],
+                todoList: action.payloadToDo};
+        case BUTTON_DONE_DELTE:
+            return {...state, todoListDone: action.payload};
         default:
             return state;
     }
