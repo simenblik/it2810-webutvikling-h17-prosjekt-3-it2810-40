@@ -1,4 +1,5 @@
-import { ADD_CANCEL, ADD_DONE, ADD } from '../actions/types';
+import { ADD_CANCEL, ADD_DONE, ADD, NAME_CHANGE, TIME_CHANGE, DATE_CHANGE, MORE_INFO_CHANGE} from '../actions/types';
+import moment from 'moment';
 
 const INITIAL_STATE = {
     add: true,
