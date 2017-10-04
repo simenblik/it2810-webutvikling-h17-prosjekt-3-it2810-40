@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import _ from 'lodash';
 import {Card, CardSection, Button} from './common';
 import {onDeleteTodo, onDoneTodo, onDeleteDone} from '../actions/ListAction'
 
@@ -24,10 +25,12 @@ class toDoList extends Component {
 
     renderList() {
         const{todoList, todoListDone, allButton, doneButton} = this.props;
+        const todoListSorted = _.orderBy(todoList, ['date','time'], ['asc', 'asc']);
+        console.log(todoListSorted);
 
     if(allButton) {
         return (
-            todoList.map((todo, index) =>
+            todoListSorted.map((todo, index) =>
 
                 <Card key={index}>
                     <CardSection>
