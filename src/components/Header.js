@@ -113,6 +113,7 @@ const styles = {
     fontFamily: 'Tahoma',
     fontWeight: '600',
     fontSize: '25',
+    marginLeft: '35',
   },
 };
 
