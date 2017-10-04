@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Card, CardSection, Button} from './common';
+import {onDeleteTodo} from '../actions/ToDoListAction'
 
 class toDoList extends Component {
 
 
-
+    buttonDelete(index){
+        const {todoList} = this.props;
+        this.props.onDeleteTodo({index, list: todoList})
+    }
 
 
     renderList() {
@@ -21,7 +25,7 @@ class toDoList extends Component {
                         <p> {todo.time.format('HH:mm')} - {todo.date.format("DD/MM/YY")}</p>
                         <div>
                             <Button>Done</Button>
-                            <Button>Delete</Button>
+                            <Button onPress={() => this.buttonDelete(index)}>Delete</Button>
                         </div>
                     </CardSection>
                     <CardSection>
@@ -57,4 +61,4 @@ const mapStateToProps = ({addReducer}) =>{
     return {todoList};
 };
 
-export default connect(mapStateToProps) (toDoList);
+export default connect(mapStateToProps, {onDeleteTodo}) (toDoList);

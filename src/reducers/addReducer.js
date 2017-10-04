@@ -1,4 +1,5 @@
-import { ADD_CANCEL, ADD_DONE, ADD } from '../actions/types';
+import { ADD_CANCEL, ADD_DONE, ADD, NAME_CHANGE, TIME_CHANGE, DATE_CHANGE, MORE_INFO_CHANGE, DELETE_TODO} from '../actions/types';
+import moment from 'moment';
 
 const INITIAL_STATE = {
     add: true,
@@ -28,6 +29,8 @@ export default (state = INITIAL_STATE, action) => {
             return {...state, date: action.payload};
         case MORE_INFO_CHANGE:
             return {...state, info: action.payload};
+        case DELETE_TODO:
+            return {...state, todoList: action.payload};
         default:
             return state;
     }

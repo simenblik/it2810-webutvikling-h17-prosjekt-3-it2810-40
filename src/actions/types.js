@@ -10,3 +10,6 @@ export const NAME_CHANGE = 'name_change';
 export const TIME_CHANGE = 'time_change';
 export const DATE_CHANGE = 'date_change';
 export const MORE_INFO_CHANGE = 'more_info_change';
+
+//ToDoList
+export const DELETE_TODO = 'delete_todo';
