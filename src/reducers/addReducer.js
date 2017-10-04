@@ -1,6 +1,5 @@
 import { ADD_CANCEL, ADD_DONE, ADD, NAME_CHANGE, TIME_CHANGE, DATE_CHANGE, MORE_INFO_CHANGE} from '../actions/types';
-
-var moment = require('moment'); //NB npm install moment : https://momentjs.com/docs/
+import moment from 'moment';
 
 const INITIAL_STATE = {
     add: true,
