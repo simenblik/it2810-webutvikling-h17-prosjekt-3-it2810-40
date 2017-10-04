@@ -79,7 +79,7 @@ class Header extends Component {
                     </div>
                     <div>
                         <CardSection>
-                            <ButtonHeader active={allButton} action={() =>this.allButton()}>All</ButtonHeader>
+                            <ButtonHeader active={allButton} action={() =>this.allButton()}>Todo</ButtonHeader>
                             <ButtonHeader active={doneButton} action={() => this.doneButton()}>Done</ButtonHeader>
                             <ButtonHeader action={() => this.addButton()}>Add Task</ButtonHeader>
                         </CardSection>
@@ -106,19 +106,19 @@ const styles = {
 
   navContainerStyle: {
     backgroundColor: 'black',
-    height: '50',
+    height: '50px',
     width: '100%',
 
     position: 'relative',
-    left: '0',
-    right: '0',
-    top: '0',
+    left: '0px',
+    right: '0px',
+    top: '0px',
 
     display: 'flex',
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'center',
-    padding: '10',
+    padding: '10px',
   },
 
   header: {
@@ -127,8 +127,8 @@ const styles = {
     flex: '4',
     fontFamily: 'Tahoma',
     fontWeight: '600',
-    fontSize: '25',
-    marginLeft: '35',
+    fontSize: '25px',
+    marginLeft: '35px',
   },
 };
 

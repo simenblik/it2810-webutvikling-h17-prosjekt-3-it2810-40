@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
+import moment from 'moment';
 import {Card, CardSection, Button} from './common';
 import {onDeleteTodo, onDoneTodo, onDeleteDone} from '../actions/ListAction'
 
@@ -22,6 +23,20 @@ class toDoList extends Component {
         this.props.onDeleteDone({index, list: todoListDone })
     }
 
+    renderTimeAndDate(time, date){
+        if(typeof time === 'string' && typeof date === 'string'){
+
+            return (
+                <p> {moment(time).format('HH:mm')} - {moment(date).format("DD/MM/YY")}</p>
+            )
+        } else {
+            return (
+                <p> {time.format('HH:mm')} - {date.format("DD/MM/YY")}</p>
+            )
+        }
+
+    }
+
 
     renderList() {
         const{todoList, todoListDone, allButton, doneButton} = this.props;
@@ -35,7 +50,8 @@ class toDoList extends Component {
                 <Card key={index}>
                     <CardSection>
                         <h3>{todo.name}</h3>
-                        <p> {todo.time.format('HH:mm')} - {todo.date.format("DD/MM/YY")}</p>
+                        {this.renderTimeAndDate(todo.time, todo.date)}
+
                         <div>
                             <Button onPress={() => this.buttonDone(index)}>Done</Button>
                             <Button onPress={() => this.buttonDelete(index)}>Delete</Button>

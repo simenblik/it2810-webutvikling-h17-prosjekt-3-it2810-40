@@ -9,19 +9,22 @@ import {
     MORE_INFO_CHANGE,
     DELETE_TODO,
     DONE_TODO,
-    BUTTON_DONE_DELTE} from '../actions/types';
+    BUTTON_DONE_DELTE,
+    NO_NAME
+} from '../actions/types';
 
 
 import moment from 'moment';
 
 const INITIAL_STATE = {
-    add: true,
+    add: false,
     name: "",
     time: moment(),
     date: moment(),
     info: "",
     todoList: [],
-    todoListDone: []
+    todoListDone: [],
+    error: ''
 
 
 
@@ -30,13 +33,13 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch(action.type){
         case ADD_CANCEL:
-            return {...state, add: false, name: '', info: ''};
+            return {...state, add: false, name: '', info: '', error: ''};
         case ADD_DONE:
-            return {...state, add: false, todoList: [...state.todoList, action.payload], name: '', info: ''};
+            return {...state, add: false, todoList: [...state.todoList, action.payload], name: '', info: '',  error: ''};
         case ADD:
-            return {...state, add: true};
+            return {...state, add: true, error: ''};
         case NAME_CHANGE:
-            return {...state, name: action.payload};
+            return {...state, name: action.payload, error: ''};
         case TIME_CHANGE:
             return {...state, time: action.payload};
         case DATE_CHANGE:
@@ -45,6 +48,8 @@ export default (state = INITIAL_STATE, action) => {
             return {...state, info: action.payload};
         case DELETE_TODO:
             return {...state, todoList: action.payload};
+        case NO_NAME:
+            return {...state, error: 'you need a name'};
         case DONE_TODO:
             return {...state,
                 todoListDone: [...state.todoListDone, action.payloadDone],

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TimePicker from 'rc-time-picker';
 import DatePicker from 'react-datepicker';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 import {
   doneAction,
@@ -51,9 +52,10 @@ class Add extends Component {
       buttonSection,
       textStyle,
       DateStyle,
+        errorStyle
     } = styles;
 
-    const { name, time, date, info } = this.props;
+    const { name, time, date, info, error } = this.props;
 
     return (
       <div style={container}>
@@ -76,7 +78,7 @@ class Add extends Component {
             <p style={textStyle}>Time</p>
             <TimePicker
               style={{ width: 140, marginRight: 10 }}
-              value={time}
+              value={moment(time)}
               onChange={this.onTimeChange.bind(this)}
             />
           </CardSection>
@@ -85,7 +87,7 @@ class Add extends Component {
             <p style={textStyle}>Date</p>
             <DatePicker
               style={DateStyle}
-              selected={date}
+              selected={moment(date)}
               onChange={this.onDateChange.bind(this)}
             />
           </CardSection>
@@ -101,6 +103,7 @@ class Add extends Component {
               placeholder="write more inforamtion here"
             />
           </CardSection>
+          <p style={errorStyle}> {error}</p>
           <div style={buttonSection}>
             <CardSection>
               <Button onPress={() => this.buttonDone()}>Done</Button>
@@ -116,17 +119,22 @@ class Add extends Component {
 const styles = {
   container: {
     position: 'absolute',
-    marginTop: '70',
-    marginRight: '100',
+    marginTop: '70px',
+    marginRight: '100px',
     display: 'flex',
     flex: '1',
   },
+    errorStyle: {
+        color: 'red',
+        fontSize: 12,
+        alignSelf: 'center'
+    },
 
   nameInputStyle: {
-    borderRadius: '10',
-    borderWidth: '1',
-    paddingLeft: '10',
-    width: '130',
+    borderRadius: '10px',
+    borderWidth: '1px',
+    paddingLeft: '10px',
+    width: '130px',
   },
 
   textStyle: {
@@ -135,7 +143,7 @@ const styles = {
   },
 
   timeStyle: {
-    width: '140',
+    width: '140px',
   },
 
   dateStyle: {
@@ -145,10 +153,10 @@ const styles = {
 
   infoInputStyle: {
     flex: '1',
-    borderRadius: '10',
-    borderWidth: '1',
-    width: '200',
-    height: '50',
+    borderRadius: '10px',
+    borderWidth: '1px',
+    width: '200px',
+    height: '50px',
     resize: 'vertical',
     justifyContent: 'center',
   },
@@ -156,13 +164,13 @@ const styles = {
   buttonSection: {
     display: 'flex',
     justifyContent: 'center',
-    margin: '10',
+    margin: '10px',
   },
 };
 
 const mapStateToProps = ({ addReducer }) => {
-  const { name, time, date, info } = addReducer;
-  return { name, time, date, info };
+  const { name, time, date, info, error } = addReducer;
+  return { name, time, date, info, error };
 };
 
 export default connect(mapStateToProps, {
