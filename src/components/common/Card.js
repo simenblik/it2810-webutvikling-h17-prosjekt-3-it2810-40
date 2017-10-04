@@ -9,15 +9,16 @@ const Card = props => {
 
 const styles = {
   buttonStyle: {
-    flex: 1,
+    flex: '1',
   },
   cardStyle: {
     display: 'flex',
-    flex: 1,
+    flex: '1',
     flexDirection: 'column',
-    padding: 3,
-    borderRadius: 10,
+    padding: '3',
+    borderRadius: '10',
     backgroundColor: '#ccc',
+    marginTop: '10',
   },
 };
 
