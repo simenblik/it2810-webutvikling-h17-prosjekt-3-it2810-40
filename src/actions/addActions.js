@@ -1,4 +1,12 @@
-import {ADD_CANCEL,ADD_DONE, ADD, NAME_CHANGE, TIME_CHANGE, DATE_CHANGE, MORE_INFO_CHANGE} from './types';
+import {ADD_CANCEL,
+    ADD_DONE,
+    ADD, NAME_CHANGE,
+    TIME_CHANGE,
+    DATE_CHANGE,
+    MORE_INFO_CHANGE,
+    NO_NAME,
+    ERROR_DATE,
+    ERROR_TIME} from './types';
 
 export const cancelAction = () => {
     return {
@@ -13,9 +21,17 @@ export const addAction = () => {
 };
 
 export const doneAction = (todo) => {
-    return {
-        type: ADD_DONE,
-        payload: todo
+    const { name} = todo;
+    if(name.length == null || name.length === 0){
+        return {
+            type: NO_NAME
+        }
+    }else {
+
+        return {
+            type: ADD_DONE,
+            payload: todo
+        }
     }
 };
 

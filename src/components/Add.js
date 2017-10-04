@@ -52,9 +52,10 @@ class Add extends Component {
       buttonSection,
       textStyle,
       DateStyle,
+        errorStyle
     } = styles;
 
-    const { name, time, date, info } = this.props;
+    const { name, time, date, info, error } = this.props;
 
     return (
       <div style={container}>
@@ -102,6 +103,7 @@ class Add extends Component {
               placeholder="write more inforamtion here"
             />
           </CardSection>
+          <p style={errorStyle}> {error}</p>
           <div style={buttonSection}>
             <CardSection>
               <Button onPress={() => this.buttonDone()}>Done</Button>
@@ -122,6 +124,11 @@ const styles = {
     display: 'flex',
     flex: '1',
   },
+    errorStyle: {
+        color: 'red',
+        fontSize: 12,
+        alignSelf: 'center'
+    },
 
   nameInputStyle: {
     borderRadius: '10px',
@@ -162,8 +169,8 @@ const styles = {
 };
 
 const mapStateToProps = ({ addReducer }) => {
-  const { name, time, date, info } = addReducer;
-  return { name, time, date, info };
+  const { name, time, date, info, error } = addReducer;
+  return { name, time, date, info, error };
 };
 
 export default connect(mapStateToProps, {
