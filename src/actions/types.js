@@ -5,6 +5,11 @@ export const ADD = 'ADD';
 export const ADD_DONE = 'add_done';
 export const ADD_CANCEL = 'add_cancel';
 
+//add validering
+export const NO_NAME = 'no_name';
+export const ERROR_TIME = 'error_name';
+export const ERROR_DATE = 'error_date';
+
 //add felt
 export const NAME_CHANGE = 'name_change';
 export const TIME_CHANGE = 'time_change';
