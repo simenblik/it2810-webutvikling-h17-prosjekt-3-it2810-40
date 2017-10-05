@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import moment from "moment";
-import { Card, CardSection, Button } from "./common";
+import { Card, CardSection, ButtonGreen, ButtonRed } from "./common";
 import { onDeleteTodo, onDoneTodo, onDeleteDone } from "../actions/ListAction";
 
 class toDoList extends Component {
@@ -55,8 +55,12 @@ class toDoList extends Component {
 						{this.renderTimeAndDate(todo.time, todo.date)}
 
 						<div>
-							<Button onPress={() => this.buttonDone(index)}>Done</Button>
-							<Button onPress={() => this.buttonDelete(index)}>Delete</Button>
+							<ButtonGreen onPress={() => this.buttonDone(index)}>
+								Done
+							</ButtonGreen>
+							<ButtonRed onPress={() => this.buttonDelete(index)}>
+								Delete
+							</ButtonRed>
 						</div>
 					</CardSection>
 					<CardSection>
@@ -70,9 +74,9 @@ class toDoList extends Component {
 					<CardSection>
 						<h3>{todo.name}</h3>
 						<div>
-							<Button onPress={() => this.buttonDoneDelete(index)}>
+							<ButtonRed onPress={() => this.buttonDoneDelete(index)}>
 								Delete
-							</Button>
+							</ButtonRed>
 						</div>
 					</CardSection>
 					<CardSection>
@@ -92,7 +96,7 @@ class toDoList extends Component {
 const styles = {
 	cardContainer: {
 		position: "relative",
-		width: "40vw",
+		width: "60vw",
 		flexDirection: "flex",
 		flex: 1
 	}

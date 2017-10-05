@@ -1,10 +1,10 @@
 import React from "react";
 
-const Button = ({ onPress, children }) => {
-	const { buttonStyle, textStyle } = styles;
+const ButtonGreen = ({ onPress, children }) => {
+	const { buttonGreenStyle, textStyle } = styles;
 
 	return (
-		<button onClick={onPress} style={buttonStyle}>
+		<button onClick={onPress} style={buttonGreenStyle}>
 			<p style={textStyle}>{children}</p>
 		</button>
 	);
@@ -18,12 +18,12 @@ const styles = {
 		fontWeight: "600"
 	},
 
-	buttonStyle: {
+	buttonGreenStyle: {
 		flex: "1",
 		alignSelf: "stretch",
 		borderRadius: "5px",
 		borderWidth: "3px",
-		borderColor: "white",
+		borderColor: "#0d0",
 		marginLeft: "5px",
 		marginRight: "5px",
 		backgroundColor: "white",
@@ -31,4 +31,4 @@ const styles = {
 	}
 };
 
-export { Button };
+export { ButtonGreen };
