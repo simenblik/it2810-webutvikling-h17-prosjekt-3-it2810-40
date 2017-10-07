@@ -16,7 +16,7 @@ import {
 import "rc-time-picker/assets/index.css";
 import "react-datepicker/dist/react-datepicker.css";
 
-import { Card, CardSection, Button } from "./common";
+import { Card, CardSection, ButtonBlue, ButtonGreen } from "./common";
 
 class Add extends Component {
 	buttonDone() {
@@ -47,8 +47,8 @@ class Add extends Component {
 	render() {
 		const {
 			container,
-			inputStyle,
-			areaStyle,
+			nameInputStyle,
+			infoInputStyle,
 			buttonSection,
 			textStyle,
 			timeStyle,
@@ -68,10 +68,10 @@ class Add extends Component {
 					<CardSection>
 						<p style={textStyle}>Name</p>
 						<input
-							style={inputStyle}
+							style={nameInputStyle}
 							onChange={text => this.onNameChange(text)}
 							value={name}
-							placeholder="Webutvikling"
+							placeholder="Task name"
 						/>
 					</CardSection>
 
@@ -98,17 +98,19 @@ class Add extends Component {
 					</CardSection>
 					<CardSection>
 						<textarea
-							style={areaStyle}
+							style={infoInputStyle}
 							value={info}
 							onChange={text => this.onInfoChange(text)}
-							placeholder="write more inforamtion here"
+							placeholder="Write inforamtion about the task here"
 						/>
 					</CardSection>
 					<p style={errorStyle}> {error}</p>
 					<div style={buttonSection}>
 						<CardSection>
-							<Button onPress={() => this.buttonDone()}>Done</Button>
-							<Button onPress={() => this.buttonCancel()}>Cancel</Button>
+							<ButtonGreen onPress={() => this.buttonDone()}>Done</ButtonGreen>
+							<ButtonBlue onPress={() => this.buttonCancel()}>
+								Cancel
+							</ButtonBlue>
 						</CardSection>
 					</div>
 				</Card>
@@ -132,10 +134,11 @@ const styles = {
 	},
 
 	nameInputStyle: {
-		borderRadius: "10px",
+		borderRadius: "5px",
 		borderWidth: "1px",
 		paddingLeft: "10px",
-		width: "130px"
+		width: "143px",
+		height: "23px"
 	},
 
 	textStyle: {
@@ -144,7 +147,7 @@ const styles = {
 	},
 
 	timeStyle: {
-		width: "140px"
+		width: "155px"
 	},
 
 	dateStyle: {
@@ -156,7 +159,7 @@ const styles = {
 		flex: "1",
 		borderRadius: "10px",
 		borderWidth: "1px",
-		width: "200px",
+		width: "300px",
 		height: "50px",
 		resize: "vertical",
 		justifyContent: "center"
@@ -165,7 +168,7 @@ const styles = {
 	buttonSection: {
 		display: "flex",
 		justifyContent: "center",
-		margin: "10px"
+		margin: "5px"
 	}
 };
 
