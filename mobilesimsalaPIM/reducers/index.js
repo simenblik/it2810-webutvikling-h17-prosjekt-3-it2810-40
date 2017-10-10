@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import addReducer from './addAndListReducer';
-import HeaderReducer from './HeaderReducer';
+import addReducer from './addAndListReducer.js';
+import HeaderReducer from './HeaderReducer.js';
 
 export default combineReducers({
   addReducer: addReducer,
