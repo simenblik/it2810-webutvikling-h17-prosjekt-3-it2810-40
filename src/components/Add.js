@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import { connect } from "react-redux";
 import moment from "moment";
 
+
 import {
 	doneAction,
 	cancelAction,
@@ -14,7 +15,8 @@ import {
 } from "../actions";
 
 import "rc-time-picker/assets/index.css";
-import "react-datepicker/dist/react-datepicker.css";
+import "../css/data-picker.css";
+//import "react-datepicker/dist/react-datepicker-cssmodules.css"
 
 import { Card, CardSection, ButtonBlue, ButtonGreen } from "./common";
 
@@ -52,7 +54,6 @@ class Add extends Component {
 			buttonSection,
 			textStyle,
 			timeStyle,
-			dateStyle,
 			errorStyle
 		} = styles;
 
@@ -86,11 +87,13 @@ class Add extends Component {
 
 					<CardSection>
 						<p style={textStyle}>Date</p>
-						<DatePicker
-							style={dateStyle}
-							selected={moment(date)}
-							onChange={this.onDateChange.bind(this)}
-						/>
+
+							<DatePicker
+								selected={moment(date)}
+								onChange={this.onDateChange.bind(this)}
+
+							/>
+
 					</CardSection>
 
 					<CardSection>
@@ -135,31 +138,28 @@ const styles = {
 
 	nameInputStyle: {
 		borderRadius: "5px",
-		borderWidth: "1px",
+		borderWidth: "0px",
 		paddingLeft: "10px",
-		width: "143px",
+		width: "127px",
 		height: "23px"
 	},
 
 	textStyle: {
+        fontFamily: "TakaoPGothic",
 		fontFamily: "Tahoma",
-		fontFamily: "TakaoPGothic"
+
 	},
 
 	timeStyle: {
-		width: "155px"
+		width: "136px"
 	},
 
-	dateStyle: {
-		display: "flex",
-		flex: "1"
-	},
 
 	infoInputStyle: {
 		flex: "1",
 		borderRadius: "10px",
 		borderWidth: "1px",
-		width: "300px",
+		width: "200px",
 		height: "50px",
 		resize: "vertical",
 		justifyContent: "center"

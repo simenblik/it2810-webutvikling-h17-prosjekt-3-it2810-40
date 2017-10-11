@@ -22,16 +22,18 @@ class toDoList extends Component {
 	}
 
 	renderTimeAndDate(time, date) {
+        const {textStyle} = styles;
+
 		if (typeof time === "string" && typeof date === "string") {
 			return (
-				<p>
+				<p style={textStyle}>
 					{" "}
 					{moment(time).format("HH:mm")} - {moment(date).format("DD/MM/YY")}
 				</p>
 			);
 		} else {
 			return (
-				<p>
+				<p style={textStyle}>
 					{" "}
 					{time.format("HH:mm")} - {date.format("DD/MM/YY")}
 				</p>
@@ -41,6 +43,7 @@ class toDoList extends Component {
 
 	renderList() {
 		const { todoList, todoListDone, allButton, doneButton } = this.props;
+		const {textStyle} = styles;
 		const todoListSorted = _.orderBy(
 			todoList,
 			["date", "time"],
@@ -51,7 +54,7 @@ class toDoList extends Component {
 			return todoListSorted.map((todo, index) => (
 				<Card key={index}>
 					<CardSection>
-						<h3>{todo.name}</h3>
+						<h3 style={textStyle}>{todo.name}</h3>
 						{this.renderTimeAndDate(todo.time, todo.date)}
 
 						<div>
@@ -64,7 +67,7 @@ class toDoList extends Component {
 						</div>
 					</CardSection>
 					<CardSection>
-						<p>{todo.info}</p>
+						<p style={textStyle}>{todo.info}</p>
 					</CardSection>
 				</Card>
 			));
@@ -99,6 +102,11 @@ const styles = {
 		width: "60vw",
 		flexDirection: "flex",
 		flex: 1
+	},
+
+	textStyle: {
+        fontFamily: "TakaoPGothic",
+        fontFamily: "Tahoma",
 	}
 };
 
