@@ -7,23 +7,7 @@ import {
 import { Actions } from 'react-native-router-flux';
 import {Card, CardSection, Button} from "../components/common";
 import {connect} from 'react-redux';
-
-/*const ToDoListScreen = () => {
-    return (
-        <View>
-            <Text>
-                ToDO List
-            </Text>
-            <Text
-                onPress={() => Actions.add()}
-            >
-                Open Modal
-            </Text>
-        </View>
-    );
-}
-
-export default ToDoListScreen; */
+import {RoundButton} from "../components/common/RoundButton";
 
 
 class ToDoListScreen extends Component {
@@ -32,6 +16,7 @@ class ToDoListScreen extends Component {
 
 
         return (
+
             todoList.map((todo, index) =>
 
                 <Card key={index}>
@@ -57,7 +42,9 @@ class ToDoListScreen extends Component {
         return(
             <View style={cardContainer}>
                 {this.renderList()}
+                <RoundButton onPress={() => Actions.add()}>+</RoundButton>
             </View>
+
         )
     }
 }

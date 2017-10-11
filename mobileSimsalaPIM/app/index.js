@@ -21,8 +21,8 @@ let store = createStore(reducers)
 */
 const App = () => {
     return (
-        <Router>
-            <Scene key="root" store={store}>
+        <Router >
+            <Scene key="root" store={store} >
                 {/* Tab Container */}
                 <Scene
                     key="tabbar"
@@ -43,6 +43,7 @@ const App = () => {
                                component={DoneScreen}
                         />
                     </Scene>
+
                 </Scene>
 
                 <Scene
