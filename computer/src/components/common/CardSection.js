@@ -20,4 +20,5 @@ const styles = {
 	}
 };
 
-export { CardSection };
+export {CardSection};
+
