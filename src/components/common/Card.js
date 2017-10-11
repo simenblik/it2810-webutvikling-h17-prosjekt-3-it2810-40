@@ -15,7 +15,8 @@ const styles = {
 		padding: "3px",
 		borderRadius: "10px",
 		backgroundColor: "#ccc",
-		marginTop: "10px"
+		marginTop: "10px",
+
 	}
 };
 

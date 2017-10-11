@@ -3,7 +3,6 @@ import addReducer from './addAndListReducer';
 import HeaderReducer from './HeaderReducer';
 
 export default combineReducers({
-    addReducer: addReducer,
-    HeaderReducer: HeaderReducer
-
-})
+  addReducer: addReducer,
+  HeaderReducer: HeaderReducer,
+});

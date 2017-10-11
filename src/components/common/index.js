@@ -3,7 +3,6 @@
 export * from "./ButtonHeader";
 export * from "./Card";
 export * from "./CardSection";
-export * from "./ButtonList";
 export * from "./ButtonGreen";
 export * from "./ButtonBlue";
 export * from "./ButtonRed";
