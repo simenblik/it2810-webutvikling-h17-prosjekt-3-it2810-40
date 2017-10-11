@@ -4,6 +4,13 @@ import { Router, Scene } from 'react-native-router-flux';
 import ToDoListScreen from './screens/ToDoListScreen'
 import DoneScreen from './screens/DoneScreen';
 import AddModalScreen from './screens/AddModalScreen'
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './reducers';
+
+let store = createStore(reducers)
+
+
 
 // Simple component to render something in place of icon
 /*const TabIcon = ({ selected, title }) => {
@@ -15,7 +22,7 @@ import AddModalScreen from './screens/AddModalScreen'
 const App = () => {
     return (
         <Router>
-            <Scene key="root">
+            <Scene key="root" store={store}>
                 {/* Tab Container */}
                 <Scene
                     key="tabbar"
@@ -49,5 +56,6 @@ const App = () => {
         </Router>
     );
 }
+
 
 export default App;
