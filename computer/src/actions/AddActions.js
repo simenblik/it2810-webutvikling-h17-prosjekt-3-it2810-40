@@ -7,8 +7,6 @@ import {
   DATE_CHANGE,
   MORE_INFO_CHANGE,
   NO_NAME,
-  ERROR_DATE,
-  ERROR_TIME,
 } from './Types';
 
 export const cancelAction = () => {
