@@ -5,7 +5,7 @@ import moment from 'moment';
 import { Card, CardSection, ButtonGreen, ButtonRed } from './common';
 import { onDeleteTodo, onDoneTodo, onDeleteDone } from '../actions/ListAction';
 
-class toDoList extends Component {
+class ToDoList extends Component {
   buttonDelete(index) {
     const { todoList } = this.props;
     this.props.onDeleteTodo({ index, list: todoList });
@@ -120,4 +120,4 @@ export default connect(mapStateToProps, {
   onDeleteTodo,
   onDoneTodo,
   onDeleteDone,
-})(toDoList);
+})(ToDoList);
