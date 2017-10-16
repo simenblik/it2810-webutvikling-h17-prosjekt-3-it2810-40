@@ -1,9 +1,7 @@
 import React from "react";
 
-const ButtonRed = ({ onPress, children, buttonColor }) => {
-	console.log(buttonColor);
-
-	const { buttonRedStyle, textStyle } = {
+const Button = ({ onPress, children, buttonColor }) => {
+	const { buttonStyle, textStyle } = {
 		textStyle: {
 			alignSelf: "center",
 			color: "black",
@@ -11,7 +9,7 @@ const ButtonRed = ({ onPress, children, buttonColor }) => {
 			fontWeight: "600"
 		},
 
-		buttonRedStyle: {
+		buttonStyle: {
 			flex: "1",
 			alignSelf: "stretch",
 			borderRadius: "5px",
@@ -23,11 +21,12 @@ const ButtonRed = ({ onPress, children, buttonColor }) => {
 			cursor: "pointer"
 		}
 	};
+
 	return (
-		<button onClick={onPress} style={buttonRedStyle}>
+		<button onClick={onPress} style={buttonStyle}>
 			<p style={textStyle}>{children}</p>
 		</button>
 	);
 };
 
-export { ButtonRed };
+export { Button };
