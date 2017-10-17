@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { DatePicker } from "react-native-ui-xg";
 
-class CustomDatePicker extends Component {
+class DateTimePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,4 +41,4 @@ class CustomDatePicker extends Component {
   }
 }
 
-export { CustomDatePicker };
+export { DateTimePicker };

@@ -27,8 +27,7 @@ import {
   LargInput,
   Form,
   FormSection,
-  CustomDatePicker,
-  CustomTimePicker
+  DateTimePicker
 } from "../components/common";
 
 class AddModalScreen extends Component {
@@ -94,7 +93,7 @@ class AddModalScreen extends Component {
 
           <FormSection>
             <Text style={textStyle}>Time:</Text>
-            <CustomTimePicker
+            <DateTimePicker
               style={pickerStyle}
               placeholder="Tap to pick time..."
               mode="time"
@@ -104,12 +103,11 @@ class AddModalScreen extends Component {
 
           <FormSection>
             <Text style={textStyle}>Date:</Text>
-            <CustomDatePicker
+            <DateTimePicker
               style={pickerStyle}
               placeholder="Tap to pick date..."
               mode="date"
               format="DD.MM.YYYY"
-              minuteInterval={10}
             />
           </FormSection>
 
