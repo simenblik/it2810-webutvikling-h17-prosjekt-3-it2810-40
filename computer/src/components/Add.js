@@ -4,7 +4,6 @@ import DatePicker from "react-datepicker";
 import { connect } from "react-redux";
 import moment from "moment";
 
-
 import {
 	doneAction,
 	cancelAction,
@@ -18,7 +17,7 @@ import "rc-time-picker/assets/index.css";
 import "../css/data-picker.css";
 //import "react-datepicker/dist/react-datepicker-cssmodules.css"
 
-import { Card, CardSection, ButtonBlue, ButtonGreen } from "./common";
+import { Card, CardSection, Button } from "./common";
 
 class Add extends Component {
 	buttonDone() {
@@ -88,12 +87,10 @@ class Add extends Component {
 					<CardSection>
 						<p style={textStyle}>Date</p>
 
-							<DatePicker
-								selected={moment(date)}
-								onChange={this.onDateChange.bind(this)}
-
-							/>
-
+						<DatePicker
+							selected={moment(date)}
+							onChange={this.onDateChange.bind(this)}
+						/>
 					</CardSection>
 
 					<CardSection>
@@ -110,10 +107,12 @@ class Add extends Component {
 					<p style={errorStyle}> {error}</p>
 					<div style={buttonSection}>
 						<CardSection>
-							<ButtonGreen onPress={() => this.buttonDone()}>Done</ButtonGreen>
-							<ButtonBlue onPress={() => this.buttonCancel()}>
+							<Button buttonColor="#0d0" onPress={() => this.buttonDone()}>
+								Done
+							</Button>
+							<Button buttonColor="magenta" onPress={() => this.buttonCancel()}>
 								Cancel
-							</ButtonBlue>
+							</Button>
 						</CardSection>
 					</div>
 				</Card>
@@ -145,15 +144,13 @@ const styles = {
 	},
 
 	textStyle: {
-        fontFamily: "TakaoPGothic",
-		fontFamily: "Tahoma",
-
+		fontFamily: "TakaoPGothic",
+		fontFamily: "Tahoma"
 	},
 
 	timeStyle: {
 		width: "136px"
 	},
-
 
 	infoInputStyle: {
 		flex: "1",
@@ -172,8 +169,8 @@ const styles = {
 	}
 };
 
-const mapStateToProps = ({ addReducer }) => {
-	const { name, time, date, info, error } = addReducer;
+const mapStateToProps = ({ AddReducer }) => {
+	const { name, time, date, info, error } = AddReducer;
 	return { name, time, date, info, error };
 };
 

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import addReducer from './addAndListReducer';
+import AddReducer from './AddAndListReducer';
 import HeaderReducer from './HeaderReducer';
 
 export default combineReducers({
-  addReducer: addReducer,
+  AddReducer: AddReducer,
   HeaderReducer: HeaderReducer,
 });

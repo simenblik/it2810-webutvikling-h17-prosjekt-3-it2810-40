@@ -10,7 +10,7 @@ import {
   DONE_TODO,
   BUTTON_DONE_DELTE,
   NO_NAME,
-} from '../actions/types.js';
+} from '../actions/Types.js';
 
 import moment from 'moment';
 

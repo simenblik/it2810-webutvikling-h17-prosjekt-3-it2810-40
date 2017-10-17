@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import moment from "moment";
-import { Card, CardSection, ButtonGreen, ButtonRed } from "./common";
+import { Card, CardSection, Button } from "./common";
 import { onDeleteTodo, onDoneTodo, onDeleteDone } from "../actions/ListAction";
 
-class toDoList extends Component {
+class ToDoList extends Component {
 	buttonDelete(index) {
 		const { todoList } = this.props;
 		this.props.onDeleteTodo({ index, list: todoList });
@@ -22,7 +22,7 @@ class toDoList extends Component {
 	}
 
 	renderTimeAndDate(time, date) {
-        const {textStyle} = styles;
+		const { textStyle } = styles;
 
 		if (typeof time === "string" && typeof date === "string") {
 			return (
@@ -43,7 +43,7 @@ class toDoList extends Component {
 
 	renderList() {
 		const { todoList, todoListDone, allButton, doneButton } = this.props;
-		const {textStyle} = styles;
+		const { textStyle } = styles;
 		const todoListSorted = _.orderBy(
 			todoList,
 			["date", "time"],
@@ -58,12 +58,15 @@ class toDoList extends Component {
 						{this.renderTimeAndDate(todo.time, todo.date)}
 
 						<div>
-							<ButtonGreen onPress={() => this.buttonDone(index)}>
+							<Button buttonColor="#0d0" onPress={() => this.buttonDone(index)}>
 								Done
-							</ButtonGreen>
-							<ButtonRed onPress={() => this.buttonDelete(index)}>
+							</Button>
+							<Button
+								buttonColor="red"
+								onPress={() => this.buttonDelete(index)}
+							>
 								Delete
-							</ButtonRed>
+							</Button>
 						</div>
 					</CardSection>
 					<CardSection>
@@ -77,9 +80,12 @@ class toDoList extends Component {
 					<CardSection>
 						<h3>{todo.name}</h3>
 						<div>
-							<ButtonRed onPress={() => this.buttonDoneDelete(index)}>
+							<Button
+								buttonColor="red"
+								onPress={() => this.buttonDoneDelete(index)}
+							>
 								Delete
-							</ButtonRed>
+							</Button>
 						</div>
 					</CardSection>
 					<CardSection>
@@ -105,13 +111,13 @@ const styles = {
 	},
 
 	textStyle: {
-        fontFamily: "TakaoPGothic",
-        fontFamily: "Tahoma",
+		fontFamily: "TakaoPGothic",
+		fontFamily: "Tahoma"
 	}
 };
 
-const mapStateToProps = ({ addReducer, HeaderReducer }) => {
-	const { todoList, todoListDone } = addReducer;
+const mapStateToProps = ({ AddReducer, HeaderReducer }) => {
+	const { todoList, todoListDone } = AddReducer;
 	const { allButton, doneButton } = HeaderReducer;
 	return { todoList, todoListDone, allButton, doneButton };
 };
@@ -120,4 +126,4 @@ export default connect(mapStateToProps, {
 	onDeleteTodo,
 	onDoneTodo,
 	onDeleteDone
-})(toDoList);
+})(ToDoList);

@@ -1,4 +1,4 @@
-import { HEADER_ALL, HEADER_DONE } from '../actions/types.js';
+import { HEADER_ALL, HEADER_DONE } from '../actions/Types.js';
 
 const INITIAL_STATE = {
   allButton: true,
