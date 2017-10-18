@@ -1,4 +1,7 @@
 {
-  "name": "mobileSimsalaPIM",
-  "displayName": "mobileSimsalaPIM"
+  "expo": {
+    "name": "mobileSimsalaPIM",
+    "slug": "mobileSimsalaPIM",
+    "sdkVersion": "21.0.0",
+  }
 }
