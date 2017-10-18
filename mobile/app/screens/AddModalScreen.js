@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import { Actions } from "react-native-router-flux";
-//import { DatePicker } from "react-native-ui-xg";
-
+import moment from "moment";
 import {
   doneAction,
   cancelAction,
@@ -12,12 +11,6 @@ import {
   dateChange,
   moreInfoChange
 } from "../actions";
-
-/*
-import 'rc-time-picker/assets/index.css';
-import 'react-datepicker/dist/react-datepicker.css';*/
-
-/*import { ModalView } from "../components";*/
 
 import {
   Card,
@@ -44,14 +37,12 @@ class AddModalScreen extends Component {
     this.props.nameChange({ text: text.target.value });
   }
 
-  /*
   onTimeChange(time) {
     this.props.timeChange(time);
   }
-
   onDateChange(date) {
     this.props.dateChange(date);
-  }*/
+  }
 
   onInfoChange(text) {
     this.props.moreInfoChange({ text: text.target.value });
@@ -95,6 +86,7 @@ class AddModalScreen extends Component {
             <Text style={textStyle}>Time:</Text>
             <DateTimePicker
               style={pickerStyle}
+
               placeholder="Tap to pick time..."
               mode="time"
               format="HH:mm"
@@ -105,6 +97,7 @@ class AddModalScreen extends Component {
             <Text style={textStyle}>Date:</Text>
             <DateTimePicker
               style={pickerStyle}
+              onChange={this.onDateChange.bind(this)}
               placeholder="Tap to pick date..."
               mode="date"
               format="DD.MM.YYYY"
@@ -254,7 +247,4 @@ const AddModalScreen = () => {
         </View>
     );
 }
-
-
-
 export default AddModalScreen;*/
