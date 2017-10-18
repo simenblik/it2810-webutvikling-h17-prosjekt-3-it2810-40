@@ -1,0 +1,21 @@
+import React from "react";
+import { View } from "react-native";
+
+const FormSection = props => {
+  return (
+    <View style={[styles.containerStyle, props.style]}>{props.children}</View>
+  );
+};
+
+const styles = {
+  containerStyle: {
+    borderWidth: 0,
+    padding: 10,
+    backgroundColor: "#fff",
+    justifyContent: "flex-start",
+    flexDirection: "column"
+    //position: "relative"
+  }
+};
+
+export { FormSection };
