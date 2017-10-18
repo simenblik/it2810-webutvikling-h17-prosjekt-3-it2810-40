@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { StyleSheet, Text, View, TextInput } from "react-native";
-import { Actions } from "react-native-router-flux";
-import moment from "moment";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import moment from 'moment';
 import {
   doneAction,
   cancelAction,
@@ -10,7 +10,7 @@ import {
   timeChange,
   dateChange,
   moreInfoChange
-} from "../actions";
+} from '../actions';
 
 import {
   Card,
@@ -21,7 +21,7 @@ import {
   Form,
   FormSection,
   DateTimePicker
-} from "../components/common";
+} from '../components/common';
 
 class AddModalScreen extends Component {
   buttonDone() {
@@ -31,6 +31,7 @@ class AddModalScreen extends Component {
 
   buttonCancel() {
     this.props.cancelAction();
+    Actions.pop();
   }
 
   onNameChange(text) {
@@ -75,10 +76,10 @@ class AddModalScreen extends Component {
             <Text style={textStyle}>Task name:</Text>
             <TextInput
               style={inputStyle}
-              onChange={text => this.onNameChange(text)}
+              onChangeText={text => this.onNameChange(text)}
               value={name}
               placeholder="Tap to type..."
-              underlineColorAndroid={"transparent"}
+              underlineColorAndroid={'transparent'}
             />
           </FormSection>
 
@@ -86,7 +87,6 @@ class AddModalScreen extends Component {
             <Text style={textStyle}>Time:</Text>
             <DateTimePicker
               style={pickerStyle}
-
               placeholder="Tap to pick time..."
               mode="time"
               format="HH:mm"
@@ -109,10 +109,10 @@ class AddModalScreen extends Component {
             <TextInput
               style={[
                 inputStyle,
-                { textAlign: "left", textAlignVertical: "top" }
+                { textAlign: 'left', textAlignVertical: 'top' }
               ]}
               value={info}
-              underlineColorAndroid={"transparent"}
+              underlineColorAndroid={'transparent'}
               multiline={true}
               numberOfLines={4}
               editable={true}
@@ -134,7 +134,7 @@ class AddModalScreen extends Component {
               <Button
                 style={buttonStyle}
                 styleText={buttonText}
-                onPress={() => Actions.pop()}
+                onPress={() => this.buttonCancel()}
               >
                 Cancel
               </Button>
@@ -151,7 +151,7 @@ const styles = {
   container: {
     marginTop: 2,
     marginRight: 2,
-    display: "flex",
+    display: 'flex',
     flex: 1
   },
 
@@ -163,8 +163,8 @@ const styles = {
   },
 
   textStyle: {
-    fontFamily: "Tahoma",
-    fontFamily: "TakaoPGothic"
+    fontFamily: 'Tahoma',
+    fontFamily: 'TakaoPGothic'
   },
 
   headerStyle: {
@@ -177,45 +177,45 @@ const styles = {
     borderWidth: 1,
     width: 200,
     height: 50,
-    resize: "vertical",
-    justifyContent: "center"
+    resize: 'vertical',
+    justifyContent: 'center'
   },
 
   buttonSection: {
-    display: "flex",
-    justifyContent: "space-around",
-    flexDirection: "row",
+    display: 'flex',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
     margin: 10,
     height: 50
   },
 
   buttonStyle: {
-    backgroundColor: "#2196F3",
+    backgroundColor: '#2196F3',
     elevation: 2,
-    width: "100%"
+    width: '100%'
   },
 
   buttonText: {
-    alignSelf: "center",
-    color: "white",
+    alignSelf: 'center',
+    color: 'white',
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
     paddingTop: 10,
     paddingBottom: 10
   },
 
   inputStyle: {
     padding: 5,
-    width: "100%",
+    width: '100%',
     borderRadius: 4,
     borderWidth: 1,
-    borderColor: "#000",
+    borderColor: '#000',
     marginTop: 0
   },
 
   pickerStyle: {
-    width: "100%",
-    borderColor: "#000",
+    width: '100%',
+    borderColor: '#000',
     borderRadius: 4,
     borderWidth: 1
   }
