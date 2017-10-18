@@ -13,12 +13,6 @@ import {
   moreInfoChange
 } from '../actions';
 
-/*
-import 'rc-time-picker/assets/index.css';
-import 'react-datepicker/dist/react-datepicker.css';*/
-
-/*import { ModalView } from "../components";*/
-
 import {
   Card,
   CardSection,
@@ -34,10 +28,12 @@ class AddModalScreen extends Component {
   buttonDone() {
     const { name, time, date, info } = this.props;
     this.props.doneAction({ name, time, date, info });
+    Actions.pop();
   }
 
   buttonCancel() {
     this.props.cancelAction();
+    Actions.pop();
   }
 
   onNameChange(text) {
@@ -80,7 +76,7 @@ class AddModalScreen extends Component {
           </FormSection>
 
           <FormSection>
-            <Text style={textStyle}>Tasdsfdghk name:</Text>
+            <Text style={textStyle}>Task name:</Text>
             <TextInput
               style={inputStyle}
               onChangeText={name => this.onNameChange(name)}
@@ -108,7 +104,7 @@ class AddModalScreen extends Component {
               placeholder="Tap to pick date..."
               mode="date"
               format="DD.MM.YYYY"
-              onDateChange={date => this.onDateChange('date')}
+              onDateChange={this.onDateChange('date')}
             />
           </FormSection>
 
@@ -142,7 +138,7 @@ class AddModalScreen extends Component {
               <Button
                 style={buttonStyle}
                 styleText={buttonText}
-                onPress={() => Actions.pop()}
+                onPress={() => this.buttonCancel()}
               >
                 Cancel
               </Button>

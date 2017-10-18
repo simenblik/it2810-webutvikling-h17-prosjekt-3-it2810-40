@@ -36,7 +36,7 @@ const App = () => {
             </Scene>
 
             {/* Tab Done */}
-            <Scene key="donetab" title="Done" /*icon={TabIcon}*/>
+            <Scene key="donetab" title="Done Tasks" /*icon={TabIcon}*/>
               <Scene key="done" component={DoneScreen} />
             </Scene>
           </Scene>
