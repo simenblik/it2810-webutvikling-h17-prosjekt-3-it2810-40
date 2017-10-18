@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { StyleSheet, Text, View, TextInput } from "react-native";
-import { Actions } from "react-native-router-flux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 //import { DatePicker } from "react-native-ui-xg";
 
 import {
@@ -11,7 +11,7 @@ import {
   timeChange,
   dateChange,
   moreInfoChange
-} from "../actions";
+} from '../actions';
 
 /*
 import 'rc-time-picker/assets/index.css';
@@ -28,7 +28,7 @@ import {
   Form,
   FormSection,
   DateTimePicker
-} from "../components/common";
+} from '../components/common';
 
 class AddModalScreen extends Component {
   buttonDone() {
@@ -41,20 +41,19 @@ class AddModalScreen extends Component {
   }
 
   onNameChange(text) {
-    this.props.nameChange({ text: text.target.value });
+    this.props.nameChange({ text: text });
   }
 
-  /*
-  onTimeChange(time) {
-    this.props.timeChange(time);
+  onTimeChange(text) {
+    this.props.timeChange({ text: text });
   }
 
-  onDateChange(date) {
-    this.props.dateChange(date);
-  }*/
+  onDateChange(text) {
+    this.props.dateChange({ text: text });
+  }
 
   onInfoChange(text) {
-    this.props.moreInfoChange({ text: text.target.value });
+    this.props.moreInfoChange({ text: text });
   }
 
   render() {
@@ -81,13 +80,13 @@ class AddModalScreen extends Component {
           </FormSection>
 
           <FormSection>
-            <Text style={textStyle}>Task name:</Text>
+            <Text style={textStyle}>Tasdsfdghk name:</Text>
             <TextInput
               style={inputStyle}
-              onChange={text => this.onNameChange(text)}
+              onChangeText={name => this.onNameChange(name)}
               value={name}
               placeholder="Tap to type..."
-              underlineColorAndroid={"transparent"}
+              underlineColorAndroid={'transparent'}
             />
           </FormSection>
 
@@ -98,6 +97,7 @@ class AddModalScreen extends Component {
               placeholder="Tap to pick time..."
               mode="time"
               format="HH:mm"
+              onDateChange={this.onTimeChange('time')}
             />
           </FormSection>
 
@@ -108,6 +108,7 @@ class AddModalScreen extends Component {
               placeholder="Tap to pick date..."
               mode="date"
               format="DD.MM.YYYY"
+              onDateChange={date => this.onDateChange('date')}
             />
           </FormSection>
 
@@ -116,15 +117,15 @@ class AddModalScreen extends Component {
             <TextInput
               style={[
                 inputStyle,
-                { textAlign: "left", textAlignVertical: "top" }
+                { textAlign: 'left', textAlignVertical: 'top' }
               ]}
               value={info}
-              underlineColorAndroid={"transparent"}
+              underlineColorAndroid={'transparent'}
               multiline={true}
               numberOfLines={4}
               editable={true}
               maxLength={200}
-              onChange={text => this.onInfoChange(text)}
+              onChangeText={info => this.onInfoChange(info)}
               placeholder="Tap to type..."
             />
           </FormSection>
@@ -158,7 +159,7 @@ const styles = {
   container: {
     marginTop: 2,
     marginRight: 2,
-    display: "flex",
+    display: 'flex',
     flex: 1
   },
 
@@ -170,8 +171,8 @@ const styles = {
   },
 
   textStyle: {
-    fontFamily: "Tahoma",
-    fontFamily: "TakaoPGothic"
+    fontFamily: 'Tahoma',
+    fontFamily: 'TakaoPGothic'
   },
 
   headerStyle: {
@@ -184,52 +185,52 @@ const styles = {
     borderWidth: 1,
     width: 200,
     height: 50,
-    resize: "vertical",
-    justifyContent: "center"
+    resize: 'vertical',
+    justifyContent: 'center'
   },
 
   buttonSection: {
-    display: "flex",
-    justifyContent: "space-around",
-    flexDirection: "row",
+    display: 'flex',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
     margin: 10,
     height: 50
   },
 
   buttonStyle: {
-    backgroundColor: "#2196F3",
+    backgroundColor: '#2196F3',
     elevation: 2,
-    width: "100%"
+    width: '100%'
   },
 
   buttonText: {
-    alignSelf: "center",
-    color: "white",
+    alignSelf: 'center',
+    color: 'white',
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
     paddingTop: 10,
     paddingBottom: 10
   },
 
   inputStyle: {
     padding: 5,
-    width: "100%",
+    width: '100%',
     borderRadius: 4,
     borderWidth: 1,
-    borderColor: "#000",
+    borderColor: '#000',
     marginTop: 0
   },
 
   pickerStyle: {
-    width: "100%",
-    borderColor: "#000",
+    width: '100%',
+    borderColor: '#000',
     borderRadius: 4,
     borderWidth: 1
   }
 };
 
-const mapStateToProps = ({ addReducer }) => {
-  const { name, time, date, info } = addReducer;
+const mapStateToProps = ({ AddReducer }) => {
+  const { name, time, date, info } = AddReducer;
   return { name, time, date, info };
 };
 

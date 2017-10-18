@@ -1,51 +1,64 @@
-import {ADD_CANCEL,ADD_DONE, ADD, NAME_CHANGE, TIME_CHANGE, DATE_CHANGE, MORE_INFO_CHANGE} from './types';
+import {
+  ADD_CANCEL,
+  ADD_DONE,
+  ADD,
+  NAME_CHANGE,
+  TIME_CHANGE,
+  DATE_CHANGE,
+  MORE_INFO_CHANGE,
+  NO_NAME
+} from './Types';
 
 export const cancelAction = () => {
-    return {
-        type: ADD_CANCEL
-    }
+  return {
+    type: ADD_CANCEL
+  };
 };
 
 export const addAction = () => {
-    return {
-        type: ADD
-    }
+  return {
+    type: ADD
+  };
 };
 
-export const doneAction = (todo) => {
-    console.log(todo);
+export const doneAction = todo => {
+  const { name } = todo;
+  if (name.length == null || name.length === 0) {
     return {
-        type: ADD_DONE,
-        payload: todo
-    }
+      type: NO_NAME
+    };
+  } else {
+    return {
+      type: ADD_DONE,
+      payload: todo
+    };
+  }
 };
 
-export const nameChange = ({text}) => {
-    return {
-        type: NAME_CHANGE,
-        payload: text
-    }
-
+export const nameChange = ({ text }) => {
+  return {
+    type: NAME_CHANGE,
+    payload: text
+  };
 };
 
-export const timeChange = (time) => {
-    return {
-        type: TIME_CHANGE,
-        payload: time
-    }
+export const timeChange = ({ text }) => {
+  return {
+    type: TIME_CHANGE,
+    payload: text
+  };
 };
 
-export const dateChange = (date) => {
-    console.log(date.date());
-    return {
-        type: DATE_CHANGE,
-        payload: date
-    }
+export const dateChange = ({ text }) => {
+  return {
+    type: DATE_CHANGE,
+    payload: text
+  };
 };
 
-export const moreInfoChange = ({text}) => {
-    return {
-        type: MORE_INFO_CHANGE,
-        payload: text
-    }
+export const moreInfoChange = ({ text }) => {
+  return {
+    type: MORE_INFO_CHANGE,
+    payload: text
+  };
 };
