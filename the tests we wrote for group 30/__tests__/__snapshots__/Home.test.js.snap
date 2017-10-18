@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home/>, functions should match to previous snapshots 1`] = `
+<div
+  className="Home"
+>
+  <h1>
+    Welcome to your personal information manager
+  </h1>
+  <h2>
+    Here you can create todo-lists, make appointments and write notes
+  </h2>
+  <Cards />
+</div>
+`;

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Appointment/>, functions should match to previous snapshots 1`] = `
+<div>
+  <h1>
+    Appointments
+  </h1>
+  <p>
+    Click on an appointment to remove it!
+  </p>
+  <FormAppointment />
+</div>
+`;

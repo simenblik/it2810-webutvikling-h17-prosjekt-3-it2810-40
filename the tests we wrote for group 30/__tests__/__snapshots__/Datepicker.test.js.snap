@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Datepicker/>, functions should match to previous snapshots 1`] = `
+<div>
+  <MuiThemeProvider>
+    <DatePicker
+      autoOk={false}
+      container="dialog"
+      disableYearSelection={false}
+      disabled={false}
+      firstDayOfWeek={1}
+      hideCalendarDate={false}
+      hintText="Dato"
+      openToYearSelection={false}
+      style={Object {}}
+    />
+    <TimePicker
+      autoOk={false}
+      cancelLabel="Cancel"
+      defaultTime={null}
+      disabled={false}
+      format="24hr"
+      hintText="Klokkeslett"
+      minutesStep={1}
+      okLabel="OK"
+      pedantic={false}
+      style={Object {}}
+      value={null}
+    />
+  </MuiThemeProvider>
+</div>
+`;

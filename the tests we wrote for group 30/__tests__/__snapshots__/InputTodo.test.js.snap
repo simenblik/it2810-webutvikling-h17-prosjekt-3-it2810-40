@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InputTodo/>, functions should match to previous snapshots 1`] = `
+<div>
+  <h2>
+    Here you can make a todo-list to help you remember.
+  </h2>
+  <form
+    onKeyPress={[Function]}
+  >
+    <label>
+      <input
+        id="textarea"
+        onChange={[Function]}
+      />
+    </label>
+  </form>
+  <div
+    id="todoList"
+  >
+    <ul>
+      <li
+        id="item"
+        key="0"
+      >
+        <button
+          id="removeItem"
+          onClick={[Function]}
+        >
+          null
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

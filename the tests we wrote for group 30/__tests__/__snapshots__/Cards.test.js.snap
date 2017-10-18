@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cards/>, functions should match to previous snapshots 1`] = `
+<div
+  className="cardContainer"
+>
+  <a
+    href="/Todo"
+  >
+    <h2>
+      Todo list!
+    </h2>
+    <img
+      alt="todo"
+      id="todoCard"
+      src="https://openclipart.org/image/2400px/svg_to_png/28096/sheikh-tuhin-To-Do-List.png"
+    />
+  </a>
+  <a
+    href="/Appointments"
+  >
+    <h2>
+      Appointments!
+    </h2>
+    <img
+      alt="appointment"
+      id="appointmentCard"
+      src="http://www.calcuttayellowpages.com/cimage26/109881appoint.png"
+    />
+  </a>
+  <a
+    href="/Notes"
+  >
+    <h2>
+      Notes!
+    </h2>
+    <img
+      alt="notes"
+      id="noteCard"
+      src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Notepad-117597_640.png"
+    />
+  </a>
+</div>
+`;

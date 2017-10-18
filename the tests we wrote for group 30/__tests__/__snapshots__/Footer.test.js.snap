@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer/>, functions should match to previous snapshots 1`] = `
+<footer>
+  <p>
+    © 2017 Gruppe 30
+  </p>
+</footer>
+`;

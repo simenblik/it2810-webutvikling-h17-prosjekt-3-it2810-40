@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Notes/>, functions should match to previous snapshots 1`] = `
+<div>
+  <h2>
+    Here you can write notes about whatever you want.
+    <br />
+    The content is saved automatically. No need to save : )
+  </h2>
+  <form
+    onSubmit={[Function]}
+  >
+    <textarea
+      id="notes"
+      onChange={[Function]}
+      value={null}
+    />
+    <input
+      type="Submit"
+      value="Clear notepad"
+    />
+  </form>
+</div>
+`;
