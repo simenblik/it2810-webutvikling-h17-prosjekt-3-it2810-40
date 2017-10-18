@@ -10,7 +10,7 @@ class ToDoListScreen extends Component {
     const { todoList } = this.props;
 
     return todoList.map((todo, index) => (
-      <Card key={index}>
+      <Panel header={todo.name} key={index}>
         <CardSection>
           <Text>{todo.name}</Text>
           <Text>
@@ -25,7 +25,7 @@ class ToDoListScreen extends Component {
         <CardSection>
           <Text>{todo.info}</Text>
         </CardSection>
-      </Card>
+      </Panel>
     ));
   }
 

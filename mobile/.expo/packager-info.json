@@ -1,8 +1,8 @@
 {
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 13632,
-  "expoServerNgrokUrl": "https://w6-x6a.theaks.mobile.exp.direct",
-  "packagerNgrokUrl": "https://packager.w6-x6a.theaks.mobile.exp.direct",
-  "ngrokPid": 11404
+  "packagerPid": 16284,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
